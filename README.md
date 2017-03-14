@@ -1,2 +1,2 @@
 # Cookbook
-Recommended system for recipes and food
+Recommender system for recipes and food
