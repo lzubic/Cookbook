@@ -3,24 +3,32 @@ package com.cookbook.domain;
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @NodeEntity
 public class Recipe {
-    @GraphId private int id;
+    @GraphId private Long id;
     private String name;
     private String type;
     private String instructions;
     private String preparationTime;
-    private List<Ingredient> ingredients;
+    private List<Ingredient> ingredients = new ArrayList<>();
 
     public Recipe() {}
 
-    public int getId() {
+    public Recipe(String name, String type, String instructions, String preparationTime) {
+        this.name = name;
+        this.type = type;
+        this.instructions = instructions;
+        this.preparationTime = preparationTime;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
