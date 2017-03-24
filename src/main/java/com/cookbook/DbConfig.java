@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan(basePackages = "com.cookbook.service")
 @EnableNeo4jRepositories(basePackages = "com.cookbook.repository")
 @EnableTransactionManagement
-public class Config {
+public class DbConfig {
 
     @Bean
     public SessionFactory sessionFactory() {

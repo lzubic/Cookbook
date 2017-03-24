@@ -17,6 +17,6 @@ public class UserController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {
-        return "Index page";
+        return userService.getAllUsers().toString();
     }
 }

@@ -1,6 +1,7 @@
 package com.cookbook.repository;
 
 import com.cookbook.domain.User;
+import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.GraphRepository;
 import org.springframework.stereotype.Repository;
 
