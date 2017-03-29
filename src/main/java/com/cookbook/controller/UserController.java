@@ -1,11 +1,11 @@
 package com.cookbook.controller;
 
-import com.cookbook.domain.User;
 import com.cookbook.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class UserController {
@@ -16,13 +16,17 @@ public class UserController {
         this.userService = userService;
     }
 
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView login() {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("login");
+        return model;
+    }
+
     @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public String users() {
-        String response = null;
-        Iterable<User> users = userService.getAllUsers();
-        for (User user : users) {
-            response = response + user.getUsername();
-        }
-        return response;
+    public ModelAndView users() {
+        ModelAndView model = new ModelAndView();
+        model.addObject("users", userService.getAllUsers());
+        return model;
     }
 }
