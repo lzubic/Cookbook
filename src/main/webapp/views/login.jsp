@@ -3,11 +3,11 @@
 <head>
     <title>Cookbook | Login</title>
     <link href="${pageContext.request.contextPath}/resources/styles/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/styles/main.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/styles/login.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
-    <form method="get" action="/login" class="form-signin">
+    <form action="/login" method="post" class="form-login">
         <h2 class="form-heading">Log in</h2>
         <div class="form-group">
             <input name="username" type="text" class="form-control" placeholder="Username"/>
