@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
     <title>Cookbook | Login</title>
@@ -13,7 +13,7 @@
             <input name="username" type="text" class="form-control" placeholder="Username"/>
             <input name="password" type="password" class="form-control" placeholder="Password"/>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
-            <h4 class="text-center"><a href="/registration">Create an account</a></h4>
+            <h4 class="text-center"><a href="/register">Create an account</a></h4>
         </div>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>
