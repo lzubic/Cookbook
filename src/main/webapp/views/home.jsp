@@ -3,7 +3,7 @@
 <head>
     <title>Cookbook | Home</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/common/menu.css">
+    <link rel="stylesheet" href="../resources/styles/common/menu.css">
 </head>
 <body>
 <div class="container">
