@@ -42,7 +42,7 @@ public class HomeController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView login(@RequestParam(value = "username")String username,
                               @RequestParam(value = "password")String password) {
-        //Logika za proveru postojeceg korisnika
+        System.out.println(username + " " + password);
         ModelAndView model = new ModelAndView();
         model.setViewName("redirect:/home");
         return model;
