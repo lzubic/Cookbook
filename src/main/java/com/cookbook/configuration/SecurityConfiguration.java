@@ -15,6 +15,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/resources/**").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/", "/home").hasRole("USER")
                 .antMatchers("/login*").anonymous()
                 .anyRequest().authenticated()
                 .and()
@@ -26,6 +27,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser("user").password("user").roles("USER");
-        auth.inMemoryAuthentication().withUser("admin").password("admin").roles("USER", "ADMIN");
+        auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN");
     }
 }

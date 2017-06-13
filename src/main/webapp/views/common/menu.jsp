@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -14,7 +15,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/home">Home <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="<c:url value="/home" />">Home <span class="sr-only">(current)</span></a></li>
                 <li><a href="#">Recipes</a></li>
             </ul>
             <form class="navbar-form navbar-left">
@@ -31,7 +32,7 @@
                         <li><a href="#">Edit Profile</a></li>
                         <li><a href="#">Settings</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="/logout">Logout</a></li>
+                        <li><a href="<c:url value="/logout" />">Logout</a></li>
                     </ul>
                 </li>
             </ul>
