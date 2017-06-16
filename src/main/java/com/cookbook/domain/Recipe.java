@@ -10,16 +10,20 @@ import java.util.List;
 public class Recipe {
     @GraphId private Long id;
     private String name;
-    private String type;
+    private String description;
+    private String mealType;
+    private String dishType;
     private String instructions;
     private String preparationTime;
     private List<Ingredient> ingredients = new ArrayList<>();
 
     public Recipe() {}
 
-    public Recipe(String name, String type, String instructions, String preparationTime) {
+    public Recipe(String name, String description, String mealType, String dishType, String instructions, String preparationTime) {
         this.name = name;
-        this.type = type;
+        this.description = description;
+        this.mealType = mealType;
+        this.dishType = dishType;
         this.instructions = instructions;
         this.preparationTime = preparationTime;
     }
@@ -36,12 +40,24 @@ public class Recipe {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
+    public String getDescription() { return description; }
+
+    public void setDescription(String description) { this.description = description; }
+
+    public String getMealType() {
+        return mealType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setMealType(String mealType) {
+        this.mealType = mealType;
+    }
+
+    public String getDishType() {
+        return dishType;
+    }
+
+    public void setDishType(String dishType) {
+        this.dishType = dishType;
     }
 
     public String getInstructions() {

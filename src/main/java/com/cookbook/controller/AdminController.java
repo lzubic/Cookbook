@@ -22,4 +22,18 @@ public class AdminController {
         model.setViewName("admin/dashboard");
         return model;
     }
+
+    @RequestMapping(value = "/admin/recipes", method = RequestMethod.GET)
+    public ModelAndView recipes() {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("admin/recipes/recipes-list");
+        return model;
+    }
+
+    @RequestMapping(value = "/admin/recipes/new", method = RequestMethod.POST)
+    public ModelAndView addNewRecipe() {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("admin/recipes/recipe-form");
+        return model;
+    }
 }
