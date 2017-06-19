@@ -11,11 +11,12 @@ public class Recipe {
     @GraphId private Long id;
     private String name;
     private String description;
-    private String mealType;
-    private String dishType;
     private String instructions;
     private String preparationTime;
-    private List<Ingredient> ingredients = new ArrayList<>();
+    private Integer numberOfServings;
+    private String mealType;
+    private String dishType;
+    //private List<Ingredient> ingredients = new ArrayList<>();
 
     public Recipe() {}
 
@@ -44,22 +45,6 @@ public class Recipe {
 
     public void setDescription(String description) { this.description = description; }
 
-    public String getMealType() {
-        return mealType;
-    }
-
-    public void setMealType(String mealType) {
-        this.mealType = mealType;
-    }
-
-    public String getDishType() {
-        return dishType;
-    }
-
-    public void setDishType(String dishType) {
-        this.dishType = dishType;
-    }
-
     public String getInstructions() {
         return instructions;
     }
@@ -76,11 +61,35 @@ public class Recipe {
         this.preparationTime = preparationTime;
     }
 
-    public List<Ingredient> getIngredients() {
+    public Integer getNumberOfServings() {
+        return numberOfServings;
+    }
+
+    public void setNumberOfServings(Integer numberOfServings) {
+        this.numberOfServings = numberOfServings;
+    }
+
+    public String getMealType() {
+        return mealType;
+    }
+
+    public void setMealType(String mealType) {
+        this.mealType = mealType;
+    }
+
+    public String getDishType() {
+        return dishType;
+    }
+
+    public void setDishType(String dishType) {
+        this.dishType = dishType;
+    }
+
+    /*public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
     public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
-    }
+    }*/
 }
