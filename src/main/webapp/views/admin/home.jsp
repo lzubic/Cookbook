@@ -7,16 +7,20 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Cookbook | Home</title>
+    <title>Cookbook | Admin</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../resources/styles/common/menu.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="../../resources/styles/admin/dashboard.css" rel="stylesheet">
+    <link href="../../resources/styles/admin/recipes/recipe-form.css" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-    <header>
-        <jsp:include page="./common/menu.jsp" />
-    </header>
+<jsp:include page="./common/top-menu.jsp" />
+<div class="container-fluid">
+    <div class="row">
+        <jsp:include page="./common/side-menu.jsp" />
+        <jsp:include page="./dashboard/dashboard.jsp" />
+    </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

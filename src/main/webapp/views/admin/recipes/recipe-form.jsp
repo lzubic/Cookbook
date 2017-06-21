@@ -1,66 +1,67 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <h1 class="page-header">Create New Recipe</h1>
-<form>
-    <div class="form-group">
+<form:form method="post" action="/admin/recipes/new" modelAttribute="recipe">
+    <%--<div class="form-group">
         <label for="photo">Recipe Photo</label>
         <input type="file" class="form-control-file" id="photo" aria-describedby="fileHelp">
+    </div>--%>
+    <div class="form-group">
+        <form:label path="name">Name</form:label>
+        <form:input path="name" cssClass="form-control" />
     </div>
     <div class="form-group">
-        <label for="name">Recipe Name</label>
-        <input type="text" class="form-control" id="name">
+        <form:label path="description">Description</form:label>
+        <form:textarea path="description" cssClass="form-control" rows="3" />
     </div>
+    <%--<div class="form-group">
+        <form:label path="ingredients">Ingredients</form:label>
+        <form:textarea path="ingredients" cssClass="form-control" rows="3" cols="20" placeholder="Put each ingredient on its own line." />
+    </div>--%>
     <div class="form-group">
-        <label for="description">Description</label>
-        <textarea class="form-control" id="description" rows="3"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="ingredients">Ingredients</label>
-        <textarea class="form-control" id="ingredients" rows="3" cols="20" placeholder="Put each ingredient on its own line."></textarea>
-    </div>
-    <div class="form-group">
-        <label for="instructions">Instructions</label>
-        <textarea class="form-control" id="instructions" rows="3" cols="20" placeholder="Put each step on its own line."></textarea>
+        <form:label path="instructions">Instructions</form:label>
+        <form:textarea path="instructions" cssClass="form-control" rows="3" cols="20" placeholder="Put each step on its own line." />
     </div>
     <div class="form-group row">
         <div class="col-xs-6">
-            <label for="preparation-time">Preparation Time</label>
-            <input class="form-control" id="preparation-time" type="text">
+            <form:label path="preparationTime">Preparation Time</form:label>
+            <form:input path="preparationTime" cssClass="form-control" />
         </div>
         <div class="col-xs-6">
-            <label for="number-of-servings">Number Of Servings</label>
-            <input class="form-control" id="number-of-servings" type="text">
+            <form:label path="numberOfServings">Number of Servings</form:label>
+            <form:input path="numberOfServings" cssClass="form-control" />
         </div>
     </div>
     <div class="form-group row">
         <div class="col-xs-6">
-            <label for="meal-type">Meal Type</label>
-            <select class="form-control" id="meal-type">
-                <option></option>
-                <option>Appetizers and Snacks</option>
-                <option>Breakfast and Brunch</option>
-                <option>Lunch</option>
-                <option>Dinner</option>
-                <option>Desserts</option>
-                <option>Drinks</option>
-            </select>
+            <form:label path="mealType">Meal Type</form:label>
+            <form:select path="mealType" cssClass="form-control">
+                <form:option value="" />
+                <form:option value="Appetizers and Snacks">Appetizers and Snacks</form:option>
+                <form:option value="Breakfast and Brunch">Breakfast and Brunch</form:option>
+                <form:option value="Lunch">Lunch</form:option>
+                <form:option value="Dinner">Dinner</form:option>
+                <form:option value="Desserts">Desserts</form:option>
+                <form:option value="Drinks">Drinks</form:option>
+            </form:select>
         </div>
         <div class="col-xs-6">
-            <label for="dish-type">Dish Type</label>
-            <select class="form-control" id="dish-type">
-                <option></option>
-                <option>Breads</option>
-                <option>Cakes</option>
-                <option>Salads</option>
-                <option>Smoothies</option>
-                <option>Soups, Stews and Chili</option>
-                <option>Pasta and Risotto</option>
-                <option>Vegetable sides</option>
-                <option>Pies and Pastries</option>
-                <option>Seafood</option>
-                <option>Sandwiches, Pizza and Wraps</option>
-            </select>
+            <form:label path="dishType">Dish Type</form:label>
+            <form:select path="dishType" cssClass="form-control">
+                <form:option value="" />
+                <form:option value="Breads">Breads</form:option>
+                <form:option value="Cakes">Cakes</form:option>
+                <form:option value="Salads">Salads</form:option>
+                <form:option value="Smoothies">Smoothies</form:option>
+                <form:option value="Soups, Stews and Chili">Soups, Stews and Chili</form:option>
+                <form:option value="Pasta and Risotto">Pasta and Risotto</form:option>
+                <form:option value="Vegetable Sides">Vegetable Sides</form:option>
+                <form:option value="Pies and Pastries">Pies and Pastries</form:option>
+                <form:option value="Seafood">Seafood</form:option>
+                <form:option value="Sandwiches, Pizza and Wraps">Sandwiches, Pizza and Wraps</form:option>
+            </form:select>
         </div>
     </div>
-    <h1 class="page-header">Categorize Recipe</h1>
+    <%--<h1 class="page-header">Categorize Recipe</h1>
     <div class="form-group row">
         <div class="col-xs-4">
             <input type="checkbox" id="category-diabetic" autocomplete="off" />
@@ -124,6 +125,6 @@
                 </label>
             </div>
         </div>
-    </div>
+    </div>--%>
     <button type="submit" class="btn btn-primary">Save</button>
-</form>
+</form:form>
