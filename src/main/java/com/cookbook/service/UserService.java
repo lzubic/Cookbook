@@ -21,6 +21,9 @@ public class UserService {
     }
 
     public void save(User user) {
-        userRepository.save(user);
+        User existingUser = userRepository.findByEmail(user.getEmail());
+        if (existingUser == null) {
+            userRepository.save(user);
+        }
     }
 }

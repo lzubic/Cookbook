@@ -62,10 +62,9 @@ public class HomeController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView register(@ModelAttribute("user")User user) {
-        //Logika za proveru postojeceg korisnika i dodavanja novog
         userService.save(user);
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("redirect:/home");
+        mav.setViewName("home");
         return mav;
     }
 
