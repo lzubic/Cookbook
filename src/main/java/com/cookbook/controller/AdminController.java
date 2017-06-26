@@ -4,10 +4,7 @@ import com.cookbook.domain.Recipe;
 import com.cookbook.service.RecipeService;
 import com.cookbook.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
@@ -41,6 +38,14 @@ public class AdminController {
         recipeService.save(recipe);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("admin/recipes/recipes-list");
+        return mav;
+    }
+
+    @RequestMapping(value = "/admin/recipes/{id}", method = RequestMethod.GET)
+    public ModelAndView recipe(@PathVariable("id")Long id) {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("recipe", recipeService.findById(id));
+        mav.setViewName("common/recipe-info");
         return mav;
     }
 }
