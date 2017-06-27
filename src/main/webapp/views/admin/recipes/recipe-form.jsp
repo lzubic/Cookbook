@@ -13,10 +13,6 @@
         <form:label path="description">Description</form:label>
         <form:textarea path="description" cssClass="form-control" rows="3" />
     </div>
-    <%--<div class="form-group">
-        <form:label path="ingredients">Ingredients</form:label>
-        <form:textarea path="ingredients" cssClass="form-control" rows="3" cols="20" placeholder="Put each ingredient on its own line." />
-    </div>--%>
     <div class="form-group">
         <form:label path="instructions">Instructions</form:label>
         <form:textarea path="instructions" cssClass="form-control" rows="3" cols="20" placeholder="Put each step on its own line." />
@@ -61,7 +57,19 @@
             </form:select>
         </div>
     </div>
-    <%--<h1 class="page-header">Categorize Recipe</h1>
+    <h3 class="page-header">Ingredients</h3>
+    <div class="form-group">
+        <div class="col-xs-4">
+            <form:select path="ingredients.type" items="${allIngredients.type}" cssClass="form-control" multiple="true" />
+        </div>
+        <div class="col-xs-4">
+            <form:select path="ingredients.name" items="${allIngredients.name}" cssClass="form-control" multiple="true" />
+        </div>
+        <%--<div class="col-xs-4">
+            <form:input path="quatity" cssClass="form-control" />
+        </div>--%>
+    </div>
+    <%--<h3 class="page-header">Categorize Recipe</h3>
     <div class="form-group row">
         <div class="col-xs-4">
             <input type="checkbox" id="category-diabetic" autocomplete="off" />

@@ -16,7 +16,8 @@ public class Recipe {
     private Integer numberOfServings;
     private String mealType;
     private String dishType;
-    //private List<Ingredient> ingredients = new ArrayList<>();
+    private List<Ingredient> ingredients = new ArrayList<>();
+    private List<Category> categories = new ArrayList<>();
 
     public Recipe() {}
 
@@ -85,11 +86,19 @@ public class Recipe {
         this.dishType = dishType;
     }
 
-    /*public List<Ingredient> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
     public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
-    }*/
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
 }
