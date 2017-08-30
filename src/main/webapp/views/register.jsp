@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -44,9 +45,9 @@
             </div>
         </div>
         <div class="form-group">
-            <form:label path="birthDate" cssClass="col-sm-3 control-label">Date of Birth</form:label>
+            <form:label path="birthday" cssClass="col-sm-3 control-label">Date of Birth</form:label>
             <div class="col-sm-9">
-                <form:input path="birthDate" placeholder="dd.mm.yyyy." cssClass="form-control" />
+                <form:input path="birthday" placeholder="dd.mm.yyyy." cssClass="form-control" />
             </div>
         </div>
         <div class="form-group">
@@ -87,6 +88,9 @@
                 <button type="submit" class="btn btn-primary btn-block">Register</button>
             </div>
         </div>
+        <c:if test="${not empty error}">
+            Error: ${error}
+        </c:if>
     </form:form>
 </div>
 </body>

@@ -64,7 +64,8 @@ public class HomeController {
     public ModelAndView register(@ModelAttribute("user")User user) {
         userService.save(user);
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("user/home");
+        mav.addObject("error", "User already exists!");
+        mav.setViewName("home");
         return mav;
     }
 
