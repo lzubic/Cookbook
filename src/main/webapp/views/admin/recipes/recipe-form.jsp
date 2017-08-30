@@ -1,8 +1,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <h1 class="page-header">Create New Recipe</h1>
 <form:form method="post" action="/admin/recipes/new" modelAttribute="recipe">
     <%--<div class="form-group">
-        <label for="photo">Recipe Photo</label>
+        <label for="photo">Photo</label>
         <input type="file" class="form-control-file" id="photo" aria-describedby="fileHelp">
     </div>--%>
     <div class="form-group">
@@ -15,7 +16,7 @@
     </div>
     <div class="form-group">
         <form:label path="instructions">Instructions</form:label>
-        <form:textarea path="instructions" cssClass="form-control" rows="3" cols="20" placeholder="Put each step on its own line." />
+        <form:textarea path="instructions" cssClass="form-control" rows="3" cols="20" placeholder="Put each step on its own line" />
     </div>
     <div class="form-group row">
         <div class="col-xs-6">
@@ -60,13 +61,23 @@
     <h3 class="page-header">Ingredients</h3>
     <div class="form-group">
         <div class="col-xs-4">
-            <form:select path="ingredients.type" items="${allIngredients.type}" cssClass="form-control" multiple="true" />
+            <%--<form:label path="ingredients">Type</form:label>
+            <form:select path="ingredients" cssClass="form-control">
+                <form:option value="" />
+                <c:forEach items="${allIngredients}" var="ingredient" varStatus="status">
+                    <form:option name="ingredients[${status.index}].type" value="${ingredient.type}">${ingredient.type}</form:option>
+                </c:forEach>
+            </form:select>--%>
         </div>
         <div class="col-xs-4">
-            <form:select path="ingredients.name" items="${allIngredients.name}" cssClass="form-control" multiple="true" />
+            <form:label path="ingredients">Name</form:label>
+            <form:select path="ingredients" cssClass="form-control" multiple="true">
+                <form:option value="" label="" />
+                <form:options items="${allIngredients}" itemValue="name" itemLabel="name" />
+            </form:select>
         </div>
         <%--<div class="col-xs-4">
-            <form:input path="quatity" cssClass="form-control" />
+            <form:input path="quantity" cssClass="form-control" />
         </div>--%>
     </div>
     <%--<h3 class="page-header">Categorize Recipe</h3>

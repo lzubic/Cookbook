@@ -30,6 +30,9 @@ public class AdminController {
     @RequestMapping(value = "/admin/dashboard", method = RequestMethod.GET)
     public ModelAndView users() {
         ModelAndView mav = new ModelAndView();
+        mav.addObject("recipe", new Recipe());
+        mav.addObject("allIngredients", ingredientService.findAll());
+        mav.addObject("allCategories", categoryService.findAll());
         mav.setViewName("admin/home");
         return mav;
     }

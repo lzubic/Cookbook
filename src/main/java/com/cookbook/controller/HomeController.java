@@ -32,7 +32,7 @@ public class HomeController {
             System.out.println("Active User: " + currentPrincipalName);
         }
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("home");
+        mav.setViewName("user/home");
         return mav;
     }
 
@@ -64,7 +64,7 @@ public class HomeController {
     public ModelAndView register(@ModelAttribute("user")User user) {
         userService.save(user);
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("home");
+        mav.setViewName("user/home");
         return mav;
     }
 
