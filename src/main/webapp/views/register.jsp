@@ -47,7 +47,7 @@
         <div class="form-group">
             <form:label path="birthday" cssClass="col-sm-3 control-label">Date of Birth</form:label>
             <div class="col-sm-9">
-                <form:input path="birthday" placeholder="dd.mm.yyyy." cssClass="form-control" />
+                <form:input path="birthday" placeholder="MM/DD/YYYY" cssClass="form-control" />
             </div>
         </div>
         <div class="form-group">
