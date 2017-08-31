@@ -40,6 +40,7 @@ public class AdminController {
     @RequestMapping(value = "/admin/recipes", method = RequestMethod.GET)
     public ModelAndView recipes() {
         ModelAndView mav = new ModelAndView();
+        mav.addObject("recipes", recipeService.findAll());
         mav.setViewName("admin/recipes/recipes-list");
         return mav;
     }
