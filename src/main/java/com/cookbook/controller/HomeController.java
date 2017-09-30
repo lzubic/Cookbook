@@ -1,8 +1,5 @@
 package com.cookbook.controller;
 
-import com.cookbook.domain.User;
-import com.cookbook.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -14,13 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class HomeController {
-    private final UserService userService;
-
-    @Autowired
-    public HomeController(UserService userService) {
-        this.userService = userService;
-    }
-
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView showHome() {
         ModelAndView mav = new ModelAndView();
@@ -32,22 +22,6 @@ public class HomeController {
     public ModelAndView showLogin() {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("login");
-        return mav;
-    }
-
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public ModelAndView showRegister() {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("register");
-        mav.addObject("user", new User());
-        return mav;
-    }
-
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public ModelAndView processRegistration(@ModelAttribute("user")User user) {
-        userService.save(user);
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("user/home");
         return mav;
     }
 

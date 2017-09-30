@@ -1,13 +1,11 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <jsp:include page="./common/meta.jsp" />
-
+    <jsp:include page="../common/meta.jsp" />
     <title>Cookbook | Register</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="../resources/styles/register.css" rel="stylesheet">
+    <jsp:include page="../common/styles.jsp" />
+    <link href="../../resources/styles/register/register.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -89,5 +87,8 @@
         </div>
     </form:form>
 </div>
+<jsp:include page="../common/scripts.jsp" />
+<script src="../../resources/scripts/common/bootstrap-checkbox.min.js" defer></script>
+<script src="../../resources/scripts/register/register.js" defer></script>
 </body>
 </html>

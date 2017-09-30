@@ -3,9 +3,7 @@ package com.cookbook.domain;
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @NodeEntity
 public class User {
@@ -18,7 +16,7 @@ public class User {
     private Date birthday;
     private String gender;
     private String country;
-    private List<Ingredient> allergens = new ArrayList<>();
+    private Set<Ingredient> allergens = new HashSet<>();
 
     public User() {}
     
@@ -90,11 +88,11 @@ public class User {
         this.country = country;
     }
 
-    public List<Ingredient> getAllergens() {
+    public Set<Ingredient> getAllergens() {
         return allergens;
     }
 
-    public void setAllergens(List<Ingredient> allergens) {
+    public void setAllergens(Set<Ingredient> allergens) {
         this.allergens = allergens;
     }
 }
