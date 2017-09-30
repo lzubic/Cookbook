@@ -20,6 +20,10 @@ public class RecipeService {
         return recipeRepository.findAll();
     }
 
+    public Recipe findById(Long id) {
+        return recipeRepository.findOne(id);
+    }
+
     public void save(Recipe recipe) {
         recipeRepository.save(recipe);
     }

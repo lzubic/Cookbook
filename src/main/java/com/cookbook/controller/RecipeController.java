@@ -5,10 +5,7 @@ import com.cookbook.service.CategoryService;
 import com.cookbook.service.IngredientService;
 import com.cookbook.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
@@ -29,6 +26,14 @@ public class RecipeController {
         ModelAndView mav = new ModelAndView();
         mav.addObject("recipes", recipeService.findAll());
         mav.setViewName("admin/recipes/recipes-list");
+        return mav;
+    }
+
+    @RequestMapping(value = "/admin/recipes/{id}", method = RequestMethod.GET)
+    public ModelAndView getRecipe(@PathVariable("id")Long id) {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("recipe", recipeService.findById(id));
+        mav.setViewName("admin/recipes/recipe-info");
         return mav;
     }
 
