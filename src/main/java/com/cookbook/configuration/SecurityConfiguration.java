@@ -1,5 +1,6 @@
 package com.cookbook.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,6 +10,15 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+    private final SuccessfulLoginHandler successfulLoginHandler;
+    private final AuthenticationConfiguration authenticationConfiguration;
+
+    @Autowired
+    public SecurityConfiguration(SuccessfulLoginHandler successfulLoginHandler, AuthenticationConfiguration authenticationConfiguration) {
+        this.successfulLoginHandler = successfulLoginHandler;
+        this.authenticationConfiguration = authenticationConfiguration;
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -19,7 +29,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login*", "/register").anonymous()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/login").permitAll()
+                .formLogin().loginPage("/login").successHandler(successfulLoginHandler).permitAll()
                 .and()
                 .logout().permitAll();
     }
@@ -28,5 +38,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser("user").password("user").roles("USER");
         auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN");
+        auth.authenticationProvider(authenticationConfiguration);
     }
 }

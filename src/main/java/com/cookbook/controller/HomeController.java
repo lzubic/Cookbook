@@ -3,7 +3,6 @@ package com.cookbook.controller;
 import com.cookbook.domain.User;
 import com.cookbook.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -23,37 +22,21 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public ModelAndView home() {
-        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (!(authentication instanceof AnonymousAuthenticationToken)) {
-            final String currentPrincipalName = authentication.getName();
-            System.out.println("Authentication: " + authentication);
-            System.out.println("Principal: " + authentication.getPrincipal());
-            System.out.println("Active User: " + currentPrincipalName);
-        }
+    public ModelAndView showHome() {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("user/home");
         return mav;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView login() {
+    public ModelAndView showLogin() {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("login");
         return mav;
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ModelAndView login(@RequestParam(value = "username")String username,
-                              @RequestParam(value = "password")String password) {
-        System.out.println(username + " " + password);
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("redirect:/home");
-        return mav;
-    }
-
     @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public ModelAndView register() {
+    public ModelAndView showRegister() {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("register");
         mav.addObject("user", new User());
@@ -61,7 +44,7 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public ModelAndView register(@ModelAttribute("user")User user) {
+    public ModelAndView processRegistration(@ModelAttribute("user")User user) {
         userService.save(user);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("user/home");
@@ -69,10 +52,10 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
-    public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth != null) {
-            new SecurityContextLogoutHandler().logout(request, response, auth);
+    public ModelAndView processLogout(HttpServletRequest request, HttpServletResponse response) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null) {
+            new SecurityContextLogoutHandler().logout(request, response, authentication);
         }
         ModelAndView mav = new ModelAndView();
         mav.setViewName("redirect:/login?logout");
