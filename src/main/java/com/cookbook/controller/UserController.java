@@ -2,6 +2,7 @@ package com.cookbook.controller;
 
 import com.cookbook.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,10 +17,19 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public ModelAndView users() {
+    @RequestMapping(value = "/admin/users", method = RequestMethod.GET)
+    public ModelAndView getUsers() {
         ModelAndView model = new ModelAndView();
-        model.addObject("users", userService.getAllUsers());
+        model.addObject("users", userService.findAll());
+        model.setViewName("admin/users/users-list");
+        return model;
+    }
+
+    @RequestMapping(value = "/admin/users/delete/{id}", method = RequestMethod.DELETE)
+    public ModelAndView deleteUser(@PathVariable("id")Long id) {
+        ModelAndView model = new ModelAndView();
+        model.addObject("users", userService.findAll());
+        model.setViewName("admin/users/users-list");
         return model;
     }
 }

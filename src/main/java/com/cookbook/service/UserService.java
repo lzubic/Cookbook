@@ -16,12 +16,16 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public Iterable<User> getAllUsers() {
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    public Iterable<User> findAll() {
         return userRepository.findAll();
     }
 
     public void save(User user) {
-        User existingUser = userRepository.findByEmail(user.getEmail());
+        User existingUser = userRepository.findByUsername(user.getUsername());
         if (existingUser == null) {
             userRepository.save(user);
         }
