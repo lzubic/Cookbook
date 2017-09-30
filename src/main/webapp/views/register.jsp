@@ -1,9 +1,12 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <jsp:include page="./common/meta.jsp" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
     <title>Cookbook | Register</title>
 
@@ -88,10 +91,10 @@
                 <button type="submit" class="btn btn-primary btn-block">Register</button>
             </div>
         </div>
-        <c:if test="${not empty error}">
-            Error: ${error}
-        </c:if>
     </form:form>
 </div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="../resources/scripts/common/bootstrap-checkbox.min.js" defer></script>
+<script src="../resources/scripts/register.js" defer></script>
 </body>
 </html>

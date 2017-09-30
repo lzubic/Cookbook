@@ -52,23 +52,6 @@ public class HomeController {
         return mav;
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public ModelAndView register() {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("register");
-        mav.addObject("user", new User());
-        return mav;
-    }
-
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public ModelAndView register(@ModelAttribute("user")User user) {
-        userService.save(user);
-        ModelAndView mav = new ModelAndView();
-        mav.addObject("error", "User already exists!");
-        mav.setViewName("home");
-        return mav;
-    }
-
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
