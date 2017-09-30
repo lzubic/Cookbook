@@ -2,19 +2,19 @@ package com.cookbook.domain;
 
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Relationship;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @NodeEntity
 public class Ingredient {
     @GraphId private Long id;
     private String name;
-    private String type;
+    @Relationship(type = "CONTAINS") private Set<Recipe> recipes = new HashSet<>();
+    @Relationship(type = "MARK") private Set<Characteristic> characteristics = new HashSet<>();
 
     public Ingredient() {}
-
-    public Ingredient(String name, String type) {
-        this.name = name;
-        this.type = type;
-    }
 
     public Long getId() {
         return id;
@@ -28,11 +28,19 @@ public class Ingredient {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
+    public Set<Recipe> getRecipes() {
+        return recipes;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setRecipes(Set<Recipe> recipes) {
+        this.recipes = recipes;
+    }
+
+    public Set<Characteristic> getCharacteristics() {
+        return characteristics;
+    }
+
+    public void setCharacteristics(Set<Characteristic> characteristics) {
+        this.characteristics = characteristics;
     }
 }
