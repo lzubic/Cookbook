@@ -2,9 +2,10 @@ package com.cookbook.domain;
 
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Relationship;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @NodeEntity
 public class Recipe {
@@ -16,19 +17,10 @@ public class Recipe {
     private Integer numberOfServings;
     private String mealType;
     private String dishType;
-    private List<Ingredient> ingredients = new ArrayList<>();
-    private List<Category> categories = new ArrayList<>();
+    @Relationship(type = "CONTAINS") private Set<Ingredient> ingredients = new HashSet<>();
+    @Relationship(type = "BELONGS_TO") private Set<Category> categories = new HashSet<>();
 
     public Recipe() {}
-
-    public Recipe(String name, String description, String mealType, String dishType, String instructions, String preparationTime) {
-        this.name = name;
-        this.description = description;
-        this.mealType = mealType;
-        this.dishType = dishType;
-        this.instructions = instructions;
-        this.preparationTime = preparationTime;
-    }
 
     public Long getId() {
         return id;
@@ -90,19 +82,19 @@ public class Recipe {
         this.dishType = dishType;
     }
 
-    public List<Ingredient> getIngredients() {
+    public Set<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<Ingredient> ingredients) {
+    public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 
-    public List<Category> getCategories() {
+    public Set<Category> getCategories() {
         return categories;
     }
 
-    public void setCategories(List<Category> categories) {
+    public void setCategories(Set<Category> categories) {
         this.categories = categories;
     }
 }
