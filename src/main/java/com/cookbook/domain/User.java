@@ -21,17 +21,6 @@ public class User {
 
     public User() {}
 
-    public User(String username, String password, String firstName, String lastName, String email, Date birthday, String country, String gender) {
-        this.username = username;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.birthday = birthday;
-        this.country = country;
-        this.gender = gender;
-    }
-
     public Long getId() {
         return id;
     }
