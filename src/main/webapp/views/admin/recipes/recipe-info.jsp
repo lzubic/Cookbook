@@ -19,7 +19,7 @@
             <jsp:include page="../menu/side-menu.jsp" />
         </div>
         <div class="col-sm-10 col-sm-offset-2 main">
-            <div class="fond"> <span class="s1">cook </span><span class="s2">book</span></div>
+            <div class="fond"><span class="s1">cook </span><span class="s2">book</span></div>
             <div class="card">
                 <div class="thumbnail"><img class="left" src="http://cdn2.hubspot.net/hubfs/322787/Mychefcom/images/BLOG/Header-Blog/photo-culinaire-pexels.jpg"/></div>
                 <div class="right">

@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
-/*Just the background stuff */
+
 span.s1 {
     position: absolute;
     top: 0;
@@ -19,11 +19,6 @@ span.s2 {
     color: #3C4447;
 }
 
-body {
-    background-color: #353B3F;
-    font-family: "Roboto", sans-serif;
-}
-
 .card {
     position: relative;
     width: 900px;
@@ -34,7 +29,6 @@ body {
     box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
 }
 
-/* Image on the left side */
 .thumbnail {
     float: left;
     position: relative;
@@ -48,8 +42,6 @@ body {
     overflow: hidden;
 }
 
-/*object-fit: cover; */
-/*object-position: center; */
 img.left {
     position: absolute;
     left: 50%;
@@ -61,7 +53,6 @@ img.left {
     transform: translate(-50%, -50%);
 }
 
-/* Right side of the card */
 .right {
     margin-left: 590px;
     margin-right: 20px;
@@ -111,7 +102,6 @@ p {
     color: #4B4B4B;
 }
 
-/* DATE of release */
 h5 {
     position: absolute;
     left: 30px;
@@ -128,19 +118,6 @@ h6 {
     color: #C3C3C3;
 }
 
-/* Those futur buttons */
-ul {
-    margin-left: 250px;
-}
-
-li {
-    display: inline;
-    list-style: none;
-    padding-right: 40px;
-    color: #7B7B7B;
-}
-
-/* Floating action button */
 .fab {
     position: absolute;
     right: 50px;
