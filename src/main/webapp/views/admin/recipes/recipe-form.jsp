@@ -79,8 +79,8 @@
                 </div>
                 <h3 class="page-header">Categorize Recipe</h3>
                 <div class="form-group">
-                    <form:select path="tags" cssClass="selectpicker" data-live-search="true" multiple="true">
-                        <form:options items="${allRecipeTags}" itemValue="id" itemLabel="name" />
+                    <form:select path="categories" cssClass="selectpicker" data-live-search="true" multiple="true">
+                        <form:options items="${allCategories}" itemValue="id" itemLabel="name" />
                     </form:select>
                 </div>
                 <h3 class="page-header">Ingredients</h3>

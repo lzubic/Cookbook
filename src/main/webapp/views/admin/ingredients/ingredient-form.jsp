@@ -26,7 +26,7 @@
                     <form:input path="name" cssClass="form-control" />
                 </div>
                 <div class="form-group">
-                    <form:select path="tags" cssClass="selectpicker" data-live-search="true" multiple="true">
+                    <form:select path="characteristics" cssClass="selectpicker" data-live-search="true" multiple="true">
                         <form:options items="${allCharacteristics}" itemValue="id" itemLabel="name" />
                     </form:select>
                 </div>
