@@ -14,9 +14,10 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
-    private Date birthday;
+    private String birthday;
     private String gender;
     private String country;
+    private String overview;
     private List<Ingredient> allergens;
 
     public User() {}
@@ -65,11 +66,11 @@ public class User {
         this.email = email;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -87,6 +88,14 @@ public class User {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public String getOverview() {
+        return overview;
+    }
+
+    public void setOverview(String overview) {
+        this.overview = overview;
     }
 
     public List<Ingredient> getAllergens() {

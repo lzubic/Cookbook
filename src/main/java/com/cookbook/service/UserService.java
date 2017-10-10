@@ -16,6 +16,10 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    public User findById(Long id) {
+        return userRepository.findOne(id);
+    }
+
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
@@ -29,5 +33,9 @@ public class UserService {
         if (existingUser == null) {
             userRepository.save(user);
         }
+    }
+
+    public void remove(Long id) {
+        userRepository.remove(id);
     }
 }
