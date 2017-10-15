@@ -19,7 +19,7 @@
         <div class="col-sm-10 col-sm-offset-2 main">
             <div class="row">
                 <div class="col-sm-10 form-horizontal">
-                    <h1 class="page-header">User</h1>
+                    <h1 style="margin-top: 0;">User</h1><hr>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Username</label>
                         <div class="col-sm-5">

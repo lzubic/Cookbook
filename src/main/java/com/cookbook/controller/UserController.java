@@ -18,7 +18,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/admin/users", method = RequestMethod.GET)
-    public ModelAndView getUsers() {
+    public ModelAndView allUsers() {
         ModelAndView mav = new ModelAndView();
         mav.addObject("users", userService.findAll());
         mav.setViewName("admin/users/users-list");
@@ -33,12 +33,11 @@ public class UserController {
         return mav;
     }
 
-    @RequestMapping(value = "/admin/users/delete/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/users/{id}", method = RequestMethod.DELETE)
     public ModelAndView deleteUser(@PathVariable("id")Long id) {
-        userService.remove(id);
+        userService.delete(id);
         ModelAndView mav = new ModelAndView();
-        mav.addObject("users", userService.findAll());
-        mav.setViewName("admin/users/users-list");
+        mav.setViewName("redirect:/admin/users");
         return mav;
     }
 }

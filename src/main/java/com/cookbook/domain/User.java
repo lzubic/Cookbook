@@ -2,28 +2,55 @@ package com.cookbook.domain;
 
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Property;
+import org.neo4j.ogm.annotation.Relationship;
 
-import java.util.Date;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @NodeEntity
 public class User {
-    @GraphId private Long id;
+    @GraphId
+    private Long id;
+
+    @Property
     private String username;
+
+    @Property
     private String password;
+
+    @Property
     private String firstName;
+
+    @Property
     private String lastName;
+
+    @Property
     private String email;
+
+    @Property
     private String birthday;
+
+    @Property
     private String gender;
+
+    @Property
     private String country;
+
+    @Property
     private String overview;
-    private List<Ingredient> allergens;
+
+    @Relationship(type = "ALLERGIC_TO", direction = Relationship.OUTGOING)
+    private Set<Ingredient> allergens = new HashSet<>();
 
     public User() {}
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -98,11 +125,11 @@ public class User {
         this.overview = overview;
     }
 
-    public List<Ingredient> getAllergens() {
+    public Set<Ingredient> getAllergens() {
         return allergens;
     }
 
-    public void setAllergens(List<Ingredient> allergens) {
-        this.allergens = allergens;
+    public void setAllergens(Set<Ingredient> allergens) {
+        this.allergens = new HashSet<>(allergens);
     }
 }

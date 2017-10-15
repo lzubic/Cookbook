@@ -10,7 +10,4 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends GraphRepository<User> {
     @Query("MATCH (user:User) WHERE user.username = {username} RETURN user")
     User findByUsername(@Param("username")String username);
-
-    @Query("MATCH (user:User) WHERE ID(user)={id} DETACH DELETE user")
-    void remove(@Param("id")Long id);
 }

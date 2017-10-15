@@ -16,16 +16,16 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    public Iterable<User> findAll() {
+        return userRepository.findAll();
+    }
+
     public User findById(Long id) {
         return userRepository.findOne(id);
     }
 
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
-    }
-
-    public Iterable<User> findAll() {
-        return userRepository.findAll();
     }
 
     public void save(User user) {
@@ -35,7 +35,21 @@ public class UserService {
         }
     }
 
-    public void remove(Long id) {
-        userRepository.remove(id);
+    public void update(Long id, User user) {
+        User newUser = userRepository.findOne(id);
+        newUser.setUsername(user.getUsername());
+        newUser.setPassword(user.getPassword());
+        newUser.setFirstName(user.getFirstName());
+        newUser.setLastName(user.getLastName());
+        newUser.setEmail(user.getEmail());
+        newUser.setBirthday(user.getBirthday());
+        newUser.setGender(user.getGender());
+        newUser.setCountry(user.getCountry());
+        newUser.setOverview(user.getOverview());
+        userRepository.save(newUser);
+    }
+
+    public void delete(Long id) {
+        userRepository.delete(id);
     }
 }

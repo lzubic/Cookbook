@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <jsp:include page="../../common/meta.jsp" />
@@ -17,7 +18,7 @@
             <jsp:include page="../menu/side-menu.jsp" />
         </div>
         <div class="col-sm-10 col-sm-offset-2 main">
-            <h1 class="page-header">Users</h1>
+            <h1 style="margin-top: 0;">Users</h1><hr>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -39,7 +40,11 @@
                             <td>${user.username}</td>
                             <td>${user.email}</td>
                             <td><a href="/admin/users/${user.id}">View</a></td>
-                            <td><a href="/admin/users/delete/${user.id}">Delete</a></td>
+                            <td>
+                                <form:form method="delete" action="/admin/users/${user.id}" cssStyle="margin-bottom: 0;">
+                                    <button type="submit" class="btn btn-link btn-delete">Delete</button>
+                                </form:form>
+                            </td>
                         </tr>
                     </c:forEach>
                     </tbody>
