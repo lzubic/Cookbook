@@ -20,7 +20,21 @@ public class IngredientService {
         return ingredientRepository.findAll();
     }
 
+    public Ingredient findById(Long id) {
+        return ingredientRepository.findOne(id);
+    }
+
     public void save(Ingredient ingredient) {
         ingredientRepository.save(ingredient);
+    }
+
+    public void update(Long id, Ingredient ingredient) {
+        Ingredient newIngredient = ingredientRepository.findOne(id);
+        newIngredient.setName(ingredient.getName());
+        ingredientRepository.save(newIngredient);
+    }
+
+    public void delete(Long id) {
+        ingredientRepository.delete(id);
     }
 }
