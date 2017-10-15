@@ -19,8 +19,8 @@
             <jsp:include page="../menu/side-menu.jsp" />
         </div>
         <div class="col-sm-10 col-sm-offset-2 main">
-            <h1 class="page-header">New Characteristic</h1>
-            <form:form method="post" action="/admin/characteristics/new" modelAttribute="characteristic">
+            <h1 style="margin-top: 0;">Characteristic</h1><hr>
+            <form:form method="post" action="/admin/characteristics" modelAttribute="characteristic">
                 <div class="form-group">
                     <form:label path="name">Name</form:label>
                     <form:input path="name" cssClass="form-control" />
