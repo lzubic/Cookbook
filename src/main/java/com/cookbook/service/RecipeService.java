@@ -27,4 +27,21 @@ public class RecipeService {
     public void save(Recipe recipe) {
         recipeRepository.save(recipe);
     }
+
+    public void update(Long id, Recipe recipe) {
+        Recipe newRecipe = recipeRepository.findOne(id);
+        newRecipe.setName(recipe.getName());
+        newRecipe.setPhoto(recipe.getPhoto());
+        newRecipe.setDescription(recipe.getDescription());
+        newRecipe.setInstructions(recipe.getInstructions());
+        newRecipe.setPreparationTime(recipe.getPreparationTime());
+        newRecipe.setNumberOfServings(recipe.getNumberOfServings());
+        newRecipe.setMealType(recipe.getMealType());
+        newRecipe.setDishType(recipe.getDishType());
+        recipeRepository.save(newRecipe);
+    }
+
+    public void delete(Long id) {
+        recipeRepository.delete(id);
+    }
 }

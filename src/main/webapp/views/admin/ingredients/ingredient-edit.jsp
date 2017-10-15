@@ -19,14 +19,14 @@
             <jsp:include page="../menu/side-menu.jsp" />
         </div>
         <div class="col-sm-10 col-sm-offset-2 main">
-            <h1 class="page-header">New Ingredient</h1>
-            <form:form method="post" action="/admin/ingredients/new" modelAttribute="ingredient">
+            <h1 style="margin-top: 0;">Ingredient</h1><hr>
+            <form:form method="put" action="/admin/ingredients/${ingredient.id}" modelAttribute="ingredient">
                 <div class="form-group">
                     <form:label path="name">Name</form:label>
                     <form:input path="name" cssClass="form-control" />
                 </div>
                 <div class="form-group">
-                    <form:select path="tags" cssClass="selectpicker" data-live-search="true" multiple="true">
+                    <form:select path="characteristics" cssClass="selectpicker" data-live-search="true" multiple="true">
                         <form:options items="${allCharacteristics}" itemValue="id" itemLabel="name" />
                     </form:select>
                 </div>

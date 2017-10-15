@@ -2,6 +2,7 @@ package com.cookbook.domain;
 
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Property;
 import org.neo4j.ogm.annotation.Relationship;
 
 import java.util.HashSet;
@@ -9,21 +10,55 @@ import java.util.Set;
 
 @NodeEntity
 public class Recipe {
-    @GraphId private Long id;
+    @GraphId
+    private Long id;
+
+    @Property
+    private String photo;
+
+    @Property
     private String name;
+
+    @Property
     private String description;
+
+    @Property
     private String instructions;
+
+    @Property
     private String preparationTime;
+
+    @Property
     private Integer numberOfServings;
+
+    @Property
     private String mealType;
+
+    @Property
     private String dishType;
-    @Relationship(type = "CONTAINS") private Set<Ingredient> ingredients = new HashSet<>();
-    @Relationship(type = "BELONGS_TO") private Set<Category> categories = new HashSet<>();
+
+    @Relationship(type = "BELONGS_TO", direction = Relationship.OUTGOING)
+    private Set<Category> categories = new HashSet<>();
+
+    @Relationship(type = "CONTAINS", direction = Relationship.OUTGOING)
+    private Set<Ingredient> ingredients = new HashSet<>();
 
     public Recipe() {}
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public String getName() {
@@ -82,19 +117,19 @@ public class Recipe {
         this.dishType = dishType;
     }
 
-    public Set<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(Set<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-    }
-
     public Set<Category> getCategories() {
         return categories;
     }
 
     public void setCategories(Set<Category> categories) {
-        this.categories = categories;
+        this.categories = new HashSet<>(categories);
+    }
+
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = new HashSet<>(ingredients);
     }
 }

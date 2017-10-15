@@ -20,7 +20,21 @@ public class CharacteristicService {
         return characteristicRepository.findAll();
     }
 
+    public Characteristic findById(Long id) {
+        return characteristicRepository.findOne(id);
+    }
+
     public void save(Characteristic characteristic) {
         characteristicRepository.save(characteristic);
+    }
+
+    public void update(Long id, Characteristic characteristic) {
+        Characteristic newCharacteristic = characteristicRepository.findOne(id);
+        newCharacteristic.setName(characteristic.getName());
+        characteristicRepository.save(newCharacteristic);
+    }
+
+    public void delete(Long id) {
+        characteristicRepository.delete(id);
     }
 }

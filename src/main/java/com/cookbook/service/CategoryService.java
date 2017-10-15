@@ -20,7 +20,21 @@ public class CategoryService {
         return categoryRepository.findAll();
     }
 
+    public Category findById(Long id) {
+        return categoryRepository.findOne(id);
+    }
+
     public void save(Category category) {
         categoryRepository.save(category);
+    }
+
+    public void update(Long id, Category category) {
+        Category newCategory = categoryRepository.findOne(id);
+        newCategory.setName(category.getName());
+        categoryRepository.save(newCategory);
+    }
+
+    public void delete(Long id) {
+        categoryRepository.delete(id);
     }
 }

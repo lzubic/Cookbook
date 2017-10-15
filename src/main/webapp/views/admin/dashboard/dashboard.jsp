@@ -18,14 +18,14 @@
         <div class="col-sm-10 col-sm-offset-2 main">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="info-box blue-bg">
+                    <div class="info-box" style="background-color: #57889c;">
                         <i class="fa fa-cloud-download"></i>
                         <div class="count">6.674</div>
                         <div class="title">RECIPES</div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="info-box brown-bg">
+                    <div class="info-box" style="background-color: #d1b993;">
                         <i class="fa fa-shopping-cart"></i>
                         <div class="count">7.538</div>
                         <div class="title">COMMENTS</div>
@@ -34,14 +34,14 @@
             </div>
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="info-box dark-bg">
+                    <div class="info-box" style="background-color: #1a2732;">
                         <i class="fa fa-thumbs-o-up"></i>
                         <div class="count">4.362</div>
                         <div class="title">USERS</div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="info-box green-bg">
+                    <div class="info-box" style="background-color: #26c281;">
                         <i class="fa fa-cubes"></i>
                         <div class="count">1.426</div>
                         <div class="title">VISITORS</div>

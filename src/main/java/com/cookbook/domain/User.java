@@ -2,26 +2,55 @@ package com.cookbook.domain;
 
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Property;
+import org.neo4j.ogm.annotation.Relationship;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @NodeEntity
 public class User {
-    @GraphId private Long id;
+    @GraphId
+    private Long id;
+
+    @Property
     private String username;
+
+    @Property
     private String password;
+
+    @Property
     private String firstName;
+
+    @Property
     private String lastName;
+
+    @Property
     private String email;
-    private Date birthday;
+
+    @Property
+    private String birthday;
+
+    @Property
     private String gender;
+
+    @Property
     private String country;
+
+    @Property
+    private String overview;
+
+    @Relationship(type = "ALLERGIC_TO", direction = Relationship.OUTGOING)
     private Set<Ingredient> allergens = new HashSet<>();
 
     public User() {}
     
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -64,11 +93,11 @@ public class User {
         this.email = email;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -88,11 +117,19 @@ public class User {
         this.country = country;
     }
 
+    public String getOverview() {
+        return overview;
+    }
+
+    public void setOverview(String overview) {
+        this.overview = overview;
+    }
+
     public Set<Ingredient> getAllergens() {
         return allergens;
     }
 
     public void setAllergens(Set<Ingredient> allergens) {
-        this.allergens = allergens;
+        this.allergens = new HashSet<>(allergens);
     }
 }

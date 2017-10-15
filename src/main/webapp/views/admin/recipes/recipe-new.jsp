@@ -19,8 +19,8 @@
             <jsp:include page="../menu/side-menu.jsp" />
         </div>
         <div class="col-sm-10 col-sm-offset-2 main">
-            <h1 class="page-header">New Recipe</h1>
-            <form:form method="post" action="/admin/recipes/new" modelAttribute="recipe">
+            <h1 style="margin-top: 0;">Recipe</h1><hr>
+            <form:form method="post" action="/admin/recipes" modelAttribute="recipe">
                 <%--<div class="form-group">
                     <label for="photo">Photo</label>
                     <input type="file" class="form-control-file" id="photo" aria-describedby="fileHelp">
@@ -38,17 +38,17 @@
                     <form:textarea path="instructions" cssClass="form-control" rows="3" cols="20" placeholder="Put each step on its own line" />
                 </div>
                 <div class="form-group row">
-                    <div class="col-xs-6">
+                    <div class="col-sm-6">
                         <form:label path="preparationTime">Preparation Time</form:label>
                         <form:input path="preparationTime" cssClass="form-control" />
                     </div>
-                    <div class="col-xs-6">
+                    <div class="col-sm-6">
                         <form:label path="numberOfServings">Number of Servings</form:label>
                         <form:input path="numberOfServings" cssClass="form-control" />
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-xs-6">
+                    <div class="col-sm-6">
                         <form:label path="mealType">Meal Type</form:label>
                         <form:select path="mealType" cssClass="form-control">
                             <form:option value="" />
@@ -60,7 +60,7 @@
                             <form:option value="Drinks">Drinks</form:option>
                         </form:select>
                     </div>
-                    <div class="col-xs-6">
+                    <div class="col-sm-6">
                         <form:label path="dishType">Dish Type</form:label>
                         <form:select path="dishType" cssClass="form-control">
                             <form:option value="" />
@@ -77,18 +77,18 @@
                         </form:select>
                     </div>
                 </div>
-                <h3 class="page-header">Categorize Recipe</h3>
+                <h3>Categories</h3>
                 <div class="form-group">
-                    <form:select path="tags" cssClass="selectpicker" data-live-search="true" multiple="true">
-                        <form:options items="${allRecipeTags}" itemValue="id" itemLabel="name" />
+                    <form:select path="categories" cssClass="selectpicker" data-live-search="true" multiple="true">
+                        <form:options items="${allCategories}" itemValue="id" itemLabel="name" />
                     </form:select>
                 </div>
-                <h3 class="page-header">Ingredients</h3>
+                <h3>Ingredients</h3>
                 <div class="form-group">
                     <form:select path="ingredients" cssClass="selectpicker" data-live-search="true" multiple="true">
                         <form:options items="${allIngredients}" itemValue="id" itemLabel="name" />
                     </form:select>
-                    <%--<div class="col-xs-4">
+                    <%--<div class="col-sm-4">
                         <form:input path="quantity" cssClass="form-control" />
                     </div>--%>
                 </div>

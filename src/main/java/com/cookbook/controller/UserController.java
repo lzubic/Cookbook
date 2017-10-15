@@ -18,18 +18,26 @@ public class UserController {
     }
 
     @RequestMapping(value = "/admin/users", method = RequestMethod.GET)
-    public ModelAndView getUsers() {
-        ModelAndView model = new ModelAndView();
-        model.addObject("users", userService.findAll());
-        model.setViewName("admin/users/users-list");
-        return model;
+    public ModelAndView allUsers() {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("users", userService.findAll());
+        mav.setViewName("admin/users/users-list");
+        return mav;
     }
 
-    @RequestMapping(value = "/admin/users/delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/admin/users/{id}", method = RequestMethod.GET)
+    public ModelAndView showUser(@PathVariable("id")Long id) {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("user", userService.findById(id));
+        mav.setViewName("admin/users/user-form");
+        return mav;
+    }
+
+    @RequestMapping(value = "/admin/users/{id}", method = RequestMethod.DELETE)
     public ModelAndView deleteUser(@PathVariable("id")Long id) {
-        ModelAndView model = new ModelAndView();
-        model.addObject("users", userService.findAll());
-        model.setViewName("admin/users/users-list");
-        return model;
+        userService.delete(id);
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("redirect:/admin/users");
+        return mav;
     }
 }
