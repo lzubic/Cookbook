@@ -2,10 +2,8 @@
 <html>
 <head>
     <jsp:include page="../common/meta.jsp" />
-
     <title>Cookbook | Home</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <jsp:include page="../common/styles.jsp" />
     <link rel="stylesheet" href="../../resources/styles/common/menu.css">
 </head>
 <body>
@@ -14,7 +12,6 @@
         <jsp:include page="./menu/menu.jsp" />
     </header>
 </div>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<jsp:include page="../common/scripts.jsp" />
 </body>
 </html>

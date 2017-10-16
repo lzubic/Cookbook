@@ -19,16 +19,15 @@ public class RegisterController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public ModelAndView showRegister() {
+    public ModelAndView showRegisterStepOne() {
         ModelAndView mav = new ModelAndView();
         mav.addObject("user", new User());
-        mav.setViewName("register");
+        mav.setViewName("register/register-step-1");
         return mav;
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView processRegister(@ModelAttribute("user")User user) {
-        userService.save(user);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("register/register-step-2");
         return mav;
@@ -36,7 +35,6 @@ public class RegisterController {
 
     @RequestMapping(value = "/register-step-2", method = RequestMethod.POST)
     public ModelAndView processRegisterStepTwo(@ModelAttribute("user")User user) {
-        userService.save(user);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("user/home");
         return mav;

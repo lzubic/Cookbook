@@ -12,12 +12,12 @@
         <div class="col-sm-6 col-sm-offset-3">
             <div class="account-form">
                 <form method="post" action="${pageContext.request.contextPath}/login" class="form-login">
-                    <img src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" alt="" class="profile-img" />
+                    <img src="../resources/images/profile-login.png" class="profile-img" />
                     <div class="form-group">
-                        <input name="username" type="text" class="form-control" placeholder="Username" required autofocus />
+                        <input name="username" type="text" class="form-control" placeholder="Username" autofocus required />
                         <input name="password" type="password" class="form-control" placeholder="Password" required />
                         <button type="submit" class="btn btn-lg btn-default btn-block">Log In</button>
-                        <p class="text-center"><a href="${pageContext.request.contextPath}/register">Need an Account?</a></p>
+                        <p class="text-center">Need an Account? <a href="${pageContext.request.contextPath}/register">Sign Up!</a></p>
                     </div>
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 </form>
