@@ -8,14 +8,10 @@
     <link href="../../../resources/styles/admin/home.css" rel="stylesheet">
 </head>
 <body>
-<header>
-    <jsp:include page="../menu/top-menu.jsp" />
-</header>
+<header><jsp:include page="../menu/top-menu.jsp" /></header>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-2 sidebar">
-            <jsp:include page="../menu/side-menu.jsp" />
-        </div>
+        <div class="col-sm-2 sidebar"><jsp:include page="../menu/side-menu.jsp" /></div>
         <div class="col-sm-10 col-sm-offset-2 main">
             <div class="row">
                 <div class="col-sm-10 form-horizontal">

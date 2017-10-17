@@ -10,21 +10,13 @@
     <link href="../../../resources/styles/admin/home.css" rel="stylesheet">
 </head>
 <body>
-<header>
-    <jsp:include page="../menu/top-menu.jsp" />
-</header>
+<header><jsp:include page="../menu/top-menu.jsp" /></header>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-2 sidebar">
-            <jsp:include page="../menu/side-menu.jsp" />
-        </div>
+        <div class="col-sm-2 sidebar"><jsp:include page="../menu/side-menu.jsp" /></div>
         <div class="col-sm-10 col-sm-offset-2 main">
             <h1 style="margin-top: 0;">Recipe</h1><hr>
             <form:form method="put" action="/admin/recipes/${recipe.id}" modelAttribute="recipe">
-                <%--<div class="form-group">
-                    <label for="photo">Photo</label>
-                    <input type="file" class="form-control-file" id="photo" aria-describedby="fileHelp">
-                </div>--%>
                 <div class="form-group">
                     <form:label path="name">Name</form:label>
                     <form:input path="name" cssClass="form-control" />
@@ -88,11 +80,9 @@
                     <form:select path="ingredients" cssClass="selectpicker" data-live-search="true" multiple="true">
                         <form:options items="${allIngredients}" itemValue="id" itemLabel="name" />
                     </form:select>
-                        <%--<div class="col-sm-4">
-                            <form:input path="quantity" cssClass="form-control" />
-                        </div>--%>
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg">Save</button>
+                <a href="${pageContext.request.contextPath}/admin/recipes" class="btn btn-default btn-lg">Cancel</a>
             </form:form>
         </div>
     </div>
