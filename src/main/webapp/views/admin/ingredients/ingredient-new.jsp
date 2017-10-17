@@ -19,7 +19,7 @@
             <form:form method="post" action="/admin/ingredients" modelAttribute="ingredient">
                 <div class="form-group">
                     <form:label path="name">Name</form:label>
-                    <form:input path="name" cssClass="form-control" />
+                    <form:input path="name" cssClass="form-control" required="true" />
                 </div>
                 <div class="form-group">
                     <form:select path="characteristics" cssClass="selectpicker" data-live-search="true" multiple="true">

@@ -19,7 +19,7 @@
             <form:form method="post" action="/admin/categories" modelAttribute="category">
                 <div class="form-group">
                     <form:label path="name">Name</form:label>
-                    <form:input path="name" cssClass="form-control" />
+                    <form:input path="name" cssClass="form-control" required="true" />
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg">Save</button>
                 <a href="${pageContext.request.contextPath}/admin/categories" class="btn btn-default btn-lg">Cancel</a>

@@ -36,7 +36,7 @@
                     <div class="col-sm-8">
                         <div class="form-group">
                             <form:label path="name">Name</form:label>
-                            <form:input path="name" cssClass="form-control" />
+                            <form:input path="name" cssClass="form-control" required="true" />
                         </div>
                         <div class="form-group">
                             <form:label path="description">Description</form:label>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group">
                             <form:label path="instructions">Instructions</form:label>
-                            <form:textarea path="instructions" cssClass="form-control" rows="3" cols="20" placeholder="Put each step on its own line" />
+                            <form:textarea path="instructions" cssClass="form-control" rows="3" cols="20" placeholder="Put each step on its own line" required="true" />
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6">
