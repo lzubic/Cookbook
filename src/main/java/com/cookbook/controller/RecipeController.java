@@ -6,6 +6,7 @@ import com.cookbook.service.IngredientService;
 import com.cookbook.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
@@ -58,8 +59,8 @@ public class RecipeController {
     }
 
     @RequestMapping(value = "/admin/recipes", method = RequestMethod.POST)
-    public ModelAndView createRecipe(@ModelAttribute("recipe")Recipe recipe) {
-        recipeService.save(recipe);
+    public ModelAndView createRecipe(@ModelAttribute("recipe")Recipe recipe, @RequestParam("file")MultipartFile file) {
+        recipeService.save(recipe, file);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("redirect:/admin/recipes");
         return mav;

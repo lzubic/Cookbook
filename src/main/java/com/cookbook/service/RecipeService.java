@@ -2,9 +2,11 @@ package com.cookbook.service;
 
 import com.cookbook.domain.Recipe;
 import com.cookbook.repository.RecipeRepository;
+import com.cookbook.utilities.files.FileManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @Transactional
@@ -24,8 +26,9 @@ public class RecipeService {
         return recipeRepository.findOne(id);
     }
 
-    public void save(Recipe recipe) {
+    public void save(Recipe recipe, MultipartFile file) {
         recipeRepository.save(recipe);
+        FileManager.upload(file);
     }
 
     public void update(Long id, Recipe recipe) {
@@ -42,6 +45,8 @@ public class RecipeService {
     }
 
     public void delete(Long id) {
-        recipeRepository.delete(id);
+        Recipe recipe = recipeRepository.findOne(id);
+        recipeRepository.delete(recipe);
+        FileManager.unload(recipe.getPhoto());
     }
 }
