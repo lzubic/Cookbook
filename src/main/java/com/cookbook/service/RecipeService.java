@@ -2,8 +2,12 @@ package com.cookbook.service;
 
 import com.cookbook.domain.Recipe;
 import com.cookbook.repository.RecipeRepository;
+import com.cookbook.utilities.constants.Constants;
 import com.cookbook.utilities.files.FileManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,6 +24,11 @@ public class RecipeService {
 
     public Iterable<Recipe> findAll() {
         return recipeRepository.findAll();
+    }
+
+    public Iterable<Recipe> findAll(Integer page) {
+        Pageable pageable = new PageRequest(page - 1, Constants.ITEMS_PER_PAGE);
+        return recipeRepository.findAll(pageable, 0).getContent();
     }
 
     public Recipe findById(Long id) {
