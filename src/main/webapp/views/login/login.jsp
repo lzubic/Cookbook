@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
-    <jsp:include page="./common/meta.jsp" />
+    <jsp:include page="../common/meta.jsp" />
     <title>Cookbook | Login</title>
-    <jsp:include page="./common/styles.jsp" />
+    <jsp:include page="../common/styles.jsp" />
     <link href="../resources/styles/login.css" rel="stylesheet">
 </head>
 <body>
@@ -25,6 +25,6 @@
         </div>
     </div>
 </div>
-<jsp:include page="./common/scripts.jsp" />
+<jsp:include page="../common/scripts.jsp" />
 </body>
 </html>

@@ -11,9 +11,47 @@
 <body>
 <div class="container">
     <header><jsp:include page="./menu/menu.jsp" /></header>
-    <div class="jumbotron">
-        <h1>Bootstrap Tutorial</h1>
-        <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+        <!-- Overlay -->
+        <div class="overlay"></div>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item slides active">
+                <div class="slide-1"></div>
+                <div class="hero">
+                    <hgroup>
+                        <h1>We are creative</h1>
+                    </hgroup>
+                </div>
+            </div>
+            <div class="item slides">
+                <div class="slide-2"></div>
+                <div class="hero">
+                    <hgroup>
+                        <h1>We are tasty</h1>
+                    </hgroup>
+                </div>
+            </div>
+            <div class="item slides">
+                <div class="slide-3"></div>
+                <div class="hero">
+                    <hgroup>
+                        <h1>We are cookbook</h1>
+                    </hgroup>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <ol class="carousel-indicators">
+                    <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#bs-carousel" data-slide-to="1"></li>
+                    <li data-target="#bs-carousel" data-slide-to="2"></li>
+                </ol>
+            </div>
+        </div>
     </div>
     <h1 class="my-4">Page Heading</h1>
 
@@ -26,7 +64,7 @@
                         <div class="caption">
                             <h3>${recipe.name}</h3>
                             <p>${recipe.description}</p>
-                            <p align="center"><a href="#" class="btn btn-primary">Open</a></p>
+                            <p align="center"><a href="/recipes/${recipe.id}" class="btn btn-primary">Open</a></p>
                         </div>
                     </div>
                 </div>

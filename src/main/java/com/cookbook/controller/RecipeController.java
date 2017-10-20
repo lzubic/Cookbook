@@ -30,11 +30,11 @@ public class RecipeController {
         return mav;
     }
 
-    @RequestMapping(value = "/admin/recipes/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/recipes/{id}", method = RequestMethod.GET)
     public ModelAndView showRecipe(@PathVariable("id")Long id) {
         ModelAndView mav = new ModelAndView();
         mav.addObject("recipe", recipeService.findById(id));
-        mav.setViewName("admin/recipes/recipe-info");
+        mav.setViewName("user/recipes/recipe-info");
         return mav;
     }
 
