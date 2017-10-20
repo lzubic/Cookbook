@@ -1,6 +1,8 @@
 package com.cookbook.controller;
 
 import com.cookbook.domain.User;
+import com.cookbook.service.IngredientService;
+import com.cookbook.service.RecipeService;
 import com.cookbook.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,29 +14,29 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class RegisterController {
     private final UserService userService;
+    private final IngredientService ingredientService;
+    private final RecipeService recipeService;
 
     @Autowired
-    public RegisterController(UserService userService) {
+    public RegisterController(UserService userService, IngredientService ingredientService, RecipeService recipeService) {
         this.userService = userService;
+        this.ingredientService = ingredientService;
+        this.recipeService = recipeService;
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public ModelAndView showRegisterStepOne() {
+    public ModelAndView showRegister() {
         ModelAndView mav = new ModelAndView();
         mav.addObject("user", new User());
-        mav.setViewName("register/register-step-1");
+        mav.addObject("allIngredients", ingredientService.findAll());
+        mav.addObject("recipes", recipeService.findRandom());
+        mav.setViewName("register/register");
         return mav;
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView processRegister(@ModelAttribute("user")User user) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("register/register-step-2");
-        return mav;
-    }
-
-    @RequestMapping(value = "/register-step-2", method = RequestMethod.POST)
-    public ModelAndView processRegisterStepTwo(@ModelAttribute("user")User user) {
+        userService.save(user);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("user/home");
         return mav;

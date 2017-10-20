@@ -43,6 +43,9 @@ public class Recipe {
     @Relationship(type = "CONTAINS", direction = Relationship.OUTGOING)
     private Set<Ingredient> ingredients = new HashSet<>();
 
+    @Relationship(type = "RATED", direction = Relationship.INCOMING)
+    private Set<Rating> ratings = new HashSet<>();
+
     public Recipe() {}
 
     public Long getId() {
@@ -131,5 +134,13 @@ public class Recipe {
 
     public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = new HashSet<>(ingredients);
+    }
+
+    public Set<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(Set<Rating> ratings) {
+        this.ratings = new HashSet<>(ratings);
     }
 }

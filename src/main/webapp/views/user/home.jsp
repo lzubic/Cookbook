@@ -22,7 +22,7 @@
             <c:forEach items="${recipes}" var="recipe">
                 <div class="col-sm-3">
                     <div class="thumbnail">
-                        <img src="../../resources/images/recipe-blank.png">
+                        <img src="../../resources/images/recipes/${recipe.photo == null ? 'recipe-blank.png' : recipe.photo}">
                         <div class="caption">
                             <h3>${recipe.name}</h3>
                             <p>${recipe.description}</p>
