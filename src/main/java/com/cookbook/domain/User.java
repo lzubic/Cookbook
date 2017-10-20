@@ -40,8 +40,26 @@ public class User {
     @Property
     private String overview;
 
+    @Property
+    private Boolean meat;
+
+    @Property
+    private Boolean chicken;
+
+    @Property
+    private Boolean fish;
+
+    @Property
+    private Boolean spicy;
+
+    @Property
+    private Boolean sweets;
+
     @Relationship(type = "ALLERGIC_TO", direction = Relationship.OUTGOING)
     private Set<Ingredient> allergens = new HashSet<>();
+
+    @Relationship(type = "RATED", direction = Relationship.OUTGOING)
+    private Set<Rating> ratings = new HashSet<>();
 
     public User() {}
     
@@ -125,11 +143,59 @@ public class User {
         this.overview = overview;
     }
 
+    public Boolean getMeat() {
+        return meat;
+    }
+
+    public void setMeat(Boolean meat) {
+        this.meat = meat;
+    }
+
+    public Boolean getChicken() {
+        return chicken;
+    }
+
+    public void setChicken(Boolean chicken) {
+        this.chicken = chicken;
+    }
+
+    public Boolean getFish() {
+        return fish;
+    }
+
+    public void setFish(Boolean fish) {
+        this.fish = fish;
+    }
+
+    public Boolean getSpicy() {
+        return spicy;
+    }
+
+    public void setSpicy(Boolean spicy) {
+        this.spicy = spicy;
+    }
+
+    public Boolean getSweets() {
+        return sweets;
+    }
+
+    public void setSweets(Boolean sweets) {
+        this.sweets = sweets;
+    }
+
     public Set<Ingredient> getAllergens() {
         return allergens;
     }
 
     public void setAllergens(Set<Ingredient> allergens) {
         this.allergens = new HashSet<>(allergens);
+    }
+
+    public Set<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(Set<Rating> ratings) {
+        this.ratings = new HashSet<>(ratings);
     }
 }

@@ -29,9 +29,7 @@ public class CategoryService {
     }
 
     public void update(Long id, Category category) {
-        Category newCategory = categoryRepository.findOne(id);
-        newCategory.setName(category.getName());
-        categoryRepository.save(newCategory);
+        categoryRepository.save(category);
     }
 
     public void delete(Long id) {

@@ -29,9 +29,7 @@ public class IngredientService {
     }
 
     public void update(Long id, Ingredient ingredient) {
-        Ingredient newIngredient = ingredientRepository.findOne(id);
-        newIngredient.setName(ingredient.getName());
-        ingredientRepository.save(newIngredient);
+        ingredientRepository.save(ingredient);
     }
 
     public void delete(Long id) {

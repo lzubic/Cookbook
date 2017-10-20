@@ -31,6 +31,10 @@ public class RecipeService {
         return recipeRepository.findAll(pageable, 0).getContent();
     }
 
+    public Iterable<Recipe> findRandom() {
+        return recipeRepository.findRandom(Constants.ITEMS_PER_PAGE);
+    }
+
     public Recipe findById(Long id) {
         return recipeRepository.findOne(id);
     }
@@ -41,16 +45,7 @@ public class RecipeService {
     }
 
     public void update(Long id, Recipe recipe) {
-        Recipe newRecipe = recipeRepository.findOne(id);
-        newRecipe.setName(recipe.getName());
-        newRecipe.setPhoto(recipe.getPhoto());
-        newRecipe.setDescription(recipe.getDescription());
-        newRecipe.setInstructions(recipe.getInstructions());
-        newRecipe.setPreparationTime(recipe.getPreparationTime());
-        newRecipe.setNumberOfServings(recipe.getNumberOfServings());
-        newRecipe.setMealType(recipe.getMealType());
-        newRecipe.setDishType(recipe.getDishType());
-        recipeRepository.save(newRecipe);
+        recipeRepository.save(recipe);
     }
 
     public void delete(Long id) {

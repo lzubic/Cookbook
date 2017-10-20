@@ -4,7 +4,7 @@
     <jsp:include page="../common/meta.jsp" />
     <title>Cookbook | Login</title>
     <jsp:include page="../common/styles.jsp" />
-    <link href="../resources/styles/login.css" rel="stylesheet">
+    <link href="../../resources/styles/login/login.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -12,7 +12,7 @@
         <div class="col-sm-6 col-sm-offset-3">
             <div class="account-form">
                 <form method="post" action="${pageContext.request.contextPath}/login" class="form-login">
-                    <img src="../resources/images/profile-login.png" class="profile-img" />
+                    <img src="../../resources/images/profile-login.png" class="profile-img" />
                     <div class="form-group">
                         <input name="username" type="text" class="form-control" placeholder="Username" autofocus required />
                         <input name="password" type="password" class="form-control" placeholder="Password" required />
