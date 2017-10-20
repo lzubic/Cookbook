@@ -29,9 +29,7 @@ public class CharacteristicService {
     }
 
     public void update(Long id, Characteristic characteristic) {
-        Characteristic newCharacteristic = characteristicRepository.findOne(id);
-        newCharacteristic.setName(characteristic.getName());
-        characteristicRepository.save(newCharacteristic);
+        characteristicRepository.save(characteristic);
     }
 
     public void delete(Long id) {

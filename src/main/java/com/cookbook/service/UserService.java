@@ -36,17 +36,7 @@ public class UserService {
     }
 
     public void update(Long id, User user) {
-        User newUser = userRepository.findOne(id);
-        newUser.setUsername(user.getUsername());
-        newUser.setPassword(user.getPassword());
-        newUser.setFirstName(user.getFirstName());
-        newUser.setLastName(user.getLastName());
-        newUser.setEmail(user.getEmail());
-        newUser.setBirthday(user.getBirthday());
-        newUser.setGender(user.getGender());
-        newUser.setCountry(user.getCountry());
-        newUser.setOverview(user.getOverview());
-        userRepository.save(newUser);
+        userRepository.save(user);
     }
 
     public void delete(Long id) {
