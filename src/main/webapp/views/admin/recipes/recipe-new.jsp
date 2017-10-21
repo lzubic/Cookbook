@@ -30,7 +30,7 @@
                                 </span>
                                 <form:input path="photo" cssClass="form-control" placeholder="Choose a file..." readonly="true" />
                             </div>
-                            <img src="../../../resources/images/recipe-blank.png" class='recipe-photo' />
+                            <img src="../../../resources/images/recipes/recipe-blank.png" class='recipe-photo' />
                         </div>
                     </div>
                     <div class="col-sm-8">
