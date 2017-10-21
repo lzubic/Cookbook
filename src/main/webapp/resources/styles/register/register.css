@@ -30,6 +30,7 @@ body {
 
 .rating {
     width: 100%;
+    direction: rtl;
     unicode-bidi: bidi-override;
 }
 
