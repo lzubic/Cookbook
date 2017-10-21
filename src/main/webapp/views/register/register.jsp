@@ -114,19 +114,19 @@
                                         </div>
                                         <div class="rating text-center">
                                             <form:label path="ratings">
-                                                <form:radiobutton path="ratings" value="1" />
-                                            </form:label>
-                                            <form:label path="ratings">
-                                                <form:radiobutton path="ratings" value="2" />
-                                            </form:label>
-                                            <form:label path="ratings">
-                                                <form:radiobutton path="ratings" value="3" />
+                                                <form:radiobutton path="ratings" value="5" />
                                             </form:label>
                                             <form:label path="ratings">
                                                 <form:radiobutton path="ratings" value="4" />
                                             </form:label>
                                             <form:label path="ratings">
-                                                <form:radiobutton path="ratings" value="5" />
+                                                <form:radiobutton path="ratings" value="3" />
+                                            </form:label>
+                                            <form:label path="ratings">
+                                                <form:radiobutton path="ratings" value="2" />
+                                            </form:label>
+                                            <form:label path="ratings">
+                                                <form:radiobutton path="ratings" value="1" />
                                             </form:label>
                                         </div>
                                     </div>
