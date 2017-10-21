@@ -12,7 +12,7 @@ public class FileManager {
         if (!file.isEmpty()) {
             try {
                 String filePath = System.getProperty("user.dir") + Constants.FILE_UPLOAD_FOLDER;
-                String fileName = file.getContentType();
+                String fileName = file.getOriginalFilename();
                 FileOutputStream fileOutputStream = new FileOutputStream(new File(filePath + fileName));
                 BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
                 bufferedOutputStream.write(file.getBytes());
