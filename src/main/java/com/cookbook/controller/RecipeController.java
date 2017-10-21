@@ -67,8 +67,8 @@ public class RecipeController {
     }
 
     @RequestMapping(value = "/admin/recipes/{id}", method = RequestMethod.PUT)
-    public ModelAndView updateRecipe(@PathVariable("id")Long id, @ModelAttribute("recipe")Recipe recipe) {
-        recipeService.update(id, recipe);
+    public ModelAndView updateRecipe(@PathVariable("id")Long id, @ModelAttribute("recipe")Recipe recipe, @RequestParam("file")MultipartFile file) {
+        recipeService.update(id, recipe, file);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("redirect:/admin/recipes");
         return mav;

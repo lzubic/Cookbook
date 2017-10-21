@@ -44,8 +44,10 @@ public class RecipeService {
         FileManager.upload(file);
     }
 
-    public void update(Long id, Recipe recipe) {
+    public void update(Long id, Recipe recipe, MultipartFile file) {
+        FileManager.unload(recipeRepository.findOne(id).getPhoto());
         recipeRepository.save(recipe);
+        FileManager.upload(file);
     }
 
     public void delete(Long id) {

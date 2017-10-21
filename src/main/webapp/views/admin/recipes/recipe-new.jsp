@@ -8,7 +8,7 @@
     <jsp:include page="../../common/styles.jsp" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
     <link href="../../../resources/styles/admin/home.css" rel="stylesheet">
-    <link href="../../../resources/styles/admin/recipes/recipe-new.css" rel="stylesheet">
+    <link href="../../../resources/styles/admin/recipes/recipe-form.css" rel="stylesheet">
 </head>
 <body>
 <header><jsp:include page="../menu/top-menu.jsp" /></header>
@@ -46,12 +46,12 @@
                             <form:label path="instructions">Instructions</form:label>
                             <form:textarea path="instructions" cssClass="form-control" rows="3" cols="20" placeholder="Put each step on its own line" required="true" />
                         </div>
-                        <div class="form-group row">
-                            <div class="col-sm-6">
+                        <div class="row">
+                            <div class="form-group col-sm-6">
                                 <form:label path="preparationTime">Preparation Time</form:label>
                                 <form:input path="preparationTime" cssClass="form-control" />
                             </div>
-                            <div class="col-sm-6">
+                            <div class="form-group col-sm-6">
                                 <form:label path="numberOfServings">Number of Servings</form:label>
                                 <form:input path="numberOfServings" cssClass="form-control" />
                             </div>
@@ -111,6 +111,6 @@
 </div>
 <jsp:include page="../../common/scripts.jsp" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
-<script src="../../../resources/scripts/admin/recipes/recipe-new.js"></script>
+<script src="../../../resources/scripts/admin/recipes/recipe-form.js"></script>
 </body>
 </html>
