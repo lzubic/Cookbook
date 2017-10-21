@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="recipe col-md-6 service-image-left">
-                            <img id="item-display" src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""></img>
+                            <img id="item-display" src="../../../resources/images/recipes/${recipe.photo == null ? 'recipe-blank.png' : recipe.photo}" />
                         </div>
                     </div>
 
@@ -31,6 +31,24 @@
                         <div class="recipe-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
                         <hr>
                         <div class="recipe-type"><h3>${recipe.mealType}</h3></div>
+                        <hr>
+                        <div class="rating">
+                            <label>
+                                <input type="radio" name="rating" value="5" title="5 stars"> 5
+                            </label>
+                            <label>
+                                <input type="radio" name="rating" value="4" title="4 stars"> 4
+                            </label>
+                            <label>
+                                <input type="radio" name="rating" value="3" title="3 stars"> 3
+                            </label>
+                            <label>
+                                <input type="radio" name="rating" value="2" title="2 stars"> 2
+                            </label>
+                            <label>
+                                <input type="radio" name="rating" value="1" title="1 star"> 1
+                            </label>
+                        </div>
                         <hr>
                         <div class="btn-group cart">
                             <a href="${pageContext.request.contextPath}/home" class="btn btn-success">Back</a>
@@ -73,5 +91,6 @@
 </div>
 <jsp:include page="../../common/scripts.jsp" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+<script src="../../../resources/scripts/user/recipes/recipe-info.js" defer></script>
 </body>
 </html>
