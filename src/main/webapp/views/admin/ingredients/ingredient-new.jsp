@@ -21,8 +21,9 @@
                     <form:label path="name">Name</form:label>
                     <form:input path="name" cssClass="form-control" required="true" />
                 </div>
+                <h3>Characteristics</h3>
                 <div class="form-group">
-                    <form:select path="characteristics" cssClass="selectpicker" data-live-search="true" multiple="true">
+                    <form:select path="characteristics" cssClass="selectpicker" data-width="100%" data-live-search="true" multiple="true">
                         <form:options items="${allCharacteristics}" itemValue="id" itemLabel="name" />
                     </form:select>
                 </div>
