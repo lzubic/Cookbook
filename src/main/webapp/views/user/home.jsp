@@ -53,8 +53,6 @@
             </div>
         </div>
     </div>
-    <h1 class="my-4">Page Heading</h1>
-
     <article>
         <div class="row">
             <c:forEach items="${recipes}" var="recipe">
