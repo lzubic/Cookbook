@@ -30,7 +30,6 @@ public class SuccessfulLoginHandler implements AuthenticationSuccessHandler {
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
-        String targetUrl = determineTargetUrl(authentication);
-        redirectStrategy.sendRedirect(httpServletRequest, httpServletResponse, targetUrl);
+        redirectStrategy.sendRedirect(httpServletRequest, httpServletResponse, determineTargetUrl(authentication));
     }
 }

@@ -61,6 +61,9 @@ public class User {
     @Relationship(type = "RATED", direction = Relationship.OUTGOING)
     private Set<Rating> ratings = new HashSet<>();
 
+    @Property
+    private Boolean enabled;
+
     public User() {}
     
     public Long getId() {
@@ -197,5 +200,13 @@ public class User {
 
     public void setRatings(Set<Rating> ratings) {
         this.ratings = new HashSet<>(ratings);
+    }
+
+    public Boolean getEnabled() {
+        return this.enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 }

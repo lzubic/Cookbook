@@ -29,7 +29,7 @@ public class RegisterController {
         ModelAndView mav = new ModelAndView();
         mav.addObject("user", new User());
         mav.addObject("allIngredients", ingredientService.findAll());
-        mav.addObject("recipes", recipeService.findRandom());
+        mav.addObject("recipes", recipeService.findRandomly());
         mav.setViewName("register/register");
         return mav;
     }
@@ -38,7 +38,7 @@ public class RegisterController {
     public ModelAndView processRegister(@ModelAttribute("user")User user) {
         userService.save(user);
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("user/home");
+        mav.setViewName("redirect:/login");
         return mav;
     }
 }

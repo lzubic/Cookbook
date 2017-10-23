@@ -104,7 +104,7 @@
                     <div class="tab">
                         <h1 style="margin-top: 0;">Rate Recipes</h1><hr>
                         <div class="row">
-                            <c:forEach items="${recipes}" var="recipe">
+                            <c:forEach items="${recipes}" var="recipe" varStatus="status">
                                 <div class="col-sm-4">
                                     <div class="thumbnail">
                                         <img src="../../resources/images/recipes/${recipe.photo == null ? 'recipe-blank.png' : recipe.photo}">
@@ -113,21 +113,11 @@
                                             <p>${recipe.description}</p>
                                         </div>
                                         <div class="rating text-center">
-                                            <form:label path="ratings">
-                                                <form:radiobutton path="ratings" value="5" />
-                                            </form:label>
-                                            <form:label path="ratings">
-                                                <form:radiobutton path="ratings" value="4" />
-                                            </form:label>
-                                            <form:label path="ratings">
-                                                <form:radiobutton path="ratings" value="3" />
-                                            </form:label>
-                                            <form:label path="ratings">
-                                                <form:radiobutton path="ratings" value="2" />
-                                            </form:label>
-                                            <form:label path="ratings">
-                                                <form:radiobutton path="ratings" value="1" />
-                                            </form:label>
+                                            <label><input type="radio" name="rates_${status.index}" value="5"></label>
+                                            <label><input type="radio" name="rates_${status.index}" value="4"></label>
+                                            <label><input type="radio" name="rates_${status.index}" value="3"></label>
+                                            <label><input type="radio" name="rates_${status.index}" value="2"></label>
+                                            <label><input type="radio" name="rates_${status.index}" value="1"></label>
                                         </div>
                                     </div>
                                 </div>
