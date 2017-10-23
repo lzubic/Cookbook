@@ -49,7 +49,7 @@ $(document).ready(function() {
     });
 
     $('.rating input').change(function () {
-        $('.rating .selected').removeClass('selected');
+        $(this).removeClass('selected');
         $(this).closest('label').addClass('selected');
     });
 

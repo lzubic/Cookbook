@@ -12,6 +12,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 @Service
 @Transactional
 public class RecipeService {
@@ -31,8 +35,17 @@ public class RecipeService {
         return recipeRepository.findAll(pageable, 0).getContent();
     }
 
-    public Iterable<Recipe> findRandom() {
-        return recipeRepository.findRandom(Constants.ITEMS_PER_PAGE);
+    public Iterable<Recipe> findRandomly() {
+        List<Recipe> recipes = new ArrayList<>();
+        recipeRepository.findAll().forEach(recipes::add);
+        List<Recipe> randomRecipes = new ArrayList<>();
+        Random random = new Random();
+        for (int i = 0; i < Constants.ITEMS_PER_REGISTRATION && !recipes.isEmpty(); i++) {
+            int index = random.nextInt(recipes.size());
+            randomRecipes.add(recipes.get(index));
+            recipes.remove(index);
+        }
+        return randomRecipes;
     }
 
     public Recipe findById(Long id) {
