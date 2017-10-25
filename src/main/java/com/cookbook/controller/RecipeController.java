@@ -1,9 +1,8 @@
 package com.cookbook.controller;
 
 import com.cookbook.domain.Recipe;
-import com.cookbook.service.CategoryService;
-import com.cookbook.service.IngredientService;
-import com.cookbook.service.RecipeService;
+import com.cookbook.domain.User;
+import com.cookbook.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,12 +13,16 @@ public class RecipeController {
     private final RecipeService recipeService;
     private final IngredientService ingredientService;
     private final CategoryService categoryService;
+    private final UserService userService;
+    private final RatingService ratingService;
 
     @Autowired
-    public RecipeController(RecipeService recipeService, IngredientService ingredientService, CategoryService categoryService) {
+    public RecipeController(RecipeService recipeService, IngredientService ingredientService, CategoryService categoryService, UserService userService, RatingService ratingService) {
         this.recipeService = recipeService;
         this.ingredientService = ingredientService;
         this.categoryService = categoryService;
+        this.userService = userService;
+        this.ratingService = ratingService;
     }
 
     @RequestMapping(value = "/admin/recipes", method = RequestMethod.GET)
@@ -32,8 +35,11 @@ public class RecipeController {
 
     @RequestMapping(value = "/recipes/{id}", method = RequestMethod.GET)
     public ModelAndView showRecipe(@PathVariable("id")Long id) {
+        User user = userService.getRemoteUser();
+        Recipe recipe = recipeService.findById(id);
         ModelAndView mav = new ModelAndView();
-        mav.addObject("recipe", recipeService.findById(id));
+        mav.addObject("recipe", recipe);
+        mav.addObject("rating", ratingService.find(user, recipe));
         mav.setViewName("user/recipes/recipe-info");
         return mav;
     }

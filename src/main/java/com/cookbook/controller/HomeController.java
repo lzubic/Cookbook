@@ -1,5 +1,7 @@
 package com.cookbook.controller;
 
+import com.cookbook.domain.Recipe;
+import com.cookbook.domain.User;
 import com.cookbook.service.RecipeService;
 import com.cookbook.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +23,11 @@ public class HomeController {
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView showHome() {
+        User remoteUser = userService.getRemoteUser();
+        Iterable<Recipe> randomRecipes = !remoteUser.getEnabled() ? recipeService.findRandomly() : null;
         ModelAndView mav = new ModelAndView();
-        mav.addObject("user", userService.getRemoteUser());
-        mav.addObject("recipes", recipeService.findAll(1));
+        mav.addObject("remoteUser", remoteUser);
+        mav.addObject("randomRecipes", randomRecipes);
         mav.setViewName("user/home");
         return mav;
     }
