@@ -1,5 +1,15 @@
 var currentStep = 0;
 
+function validate() {
+    var username = $('input[name=username]');
+    var password = $('input[name=password]');
+    var email = $('input[name=email]');
+    if (username.val() == "") username.css('border-color', 'red');
+    if (password.val() == "") password.css('border-color', 'red');
+    if (email.val() == "") email.css('border-color', 'red');
+    return username.val() != "" && password.val() != "" && email.val() != "";
+}
+
 function updateIndicators(step) {
     var indicators = $('.step');
     for (var i = 0; i < indicators.length; i++) {
@@ -17,7 +27,7 @@ function show(step) {
         $('.btn-prev').css('display', 'inline');
     }
     if (step == (tabs.length - 1)) {
-        $('.btn-next').html('Submit');
+        $('.btn-next').html('Finish');
     } else {
         $('.btn-next').html('Next');
     }
@@ -26,6 +36,7 @@ function show(step) {
 
 function navigate(step) {
     var tabs = $('.tab');
+    if (step == 1 && !validate()) return false;
     $(tabs.get(currentStep)).css('display', 'none');
     currentStep = currentStep + step;
     if (currentStep >= tabs.length) {
@@ -46,11 +57,6 @@ $(document).ready(function() {
 
     $('.btn-next').click(function() {
         navigate(1);
-    });
-
-    $('.rating input').change(function () {
-        $(this).removeClass('selected');
-        $(this).closest('label').addClass('selected');
     });
 
     initialize();

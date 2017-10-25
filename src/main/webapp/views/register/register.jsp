@@ -101,29 +101,6 @@
                             </form:select>
                         </div>
                     </div>
-                    <div class="tab">
-                        <h1 style="margin-top: 0;">Rate Recipes</h1><hr>
-                        <div class="row">
-                            <c:forEach items="${recipes}" var="recipe" varStatus="status">
-                                <div class="col-sm-4">
-                                    <div class="thumbnail">
-                                        <img src="../../resources/images/recipes/${recipe.photo == null ? 'recipe-blank.png' : recipe.photo}">
-                                        <div class="caption">
-                                            <h4>${recipe.name}</h4>
-                                            <p>${recipe.description}</p>
-                                        </div>
-                                        <div class="rating text-center">
-                                            <label><input type="radio" name="rates_${status.index}" value="5"></label>
-                                            <label><input type="radio" name="rates_${status.index}" value="4"></label>
-                                            <label><input type="radio" name="rates_${status.index}" value="3"></label>
-                                            <label><input type="radio" name="rates_${status.index}" value="2"></label>
-                                            <label><input type="radio" name="rates_${status.index}" value="1"></label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:forEach>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-sm-12">
                             <button type="button" class="btn btn-default btn-lg btn-next pull-right">Next</button>
@@ -131,7 +108,6 @@
                         </div>
                     </div>
                     <div class="row text-center">
-                        <span class="step"></span>
                         <span class="step"></span>
                         <span class="step"></span>
                         <span class="step"></span>
