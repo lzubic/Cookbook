@@ -7,7 +7,6 @@
     <meta name="_csrf_header" content="${_csrf.headerName}" />
     <title>Cookbook | Home</title>
     <jsp:include page="../common/styles.jsp" />
-    <link rel="stylesheet" href="../../resources/styles/user/menu/menu.css">
     <link rel="stylesheet" href="../../resources/styles/user/home.css">
     <link rel="stylesheet" href="../../resources/styles/user/ratings/ratings.css">
 </head>
@@ -43,14 +42,14 @@
     </div>
     <article style="margin-top: 30px;">
         <div class="row">
-            <c:forEach items="${recipes}" var="recipe">
+            <c:forEach items="${topRecipes}" var="recipe">
                 <div class="col-sm-3">
                     <div class="thumbnail">
                         <img src="../../resources/images/recipes/${recipe.photo == null ? 'recipe-blank.png' : recipe.photo}">
                         <div class="caption">
                             <h3>${recipe.name}</h3>
                             <p>${recipe.description}</p>
-                            <p align="center"><a href="/recipes/${recipe.id}" class="btn btn-primary">Open</a></p>
+                            <p align="center"><a href="/recipes/${recipe.id}" class="btn btn-primary">View</a></p>
                         </div>
                     </div>
                 </div>

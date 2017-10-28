@@ -14,6 +14,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="${pageContext.request.contextPath}/home">Home <span class="sr-only">(current)</span></a></li>
                 <li><a href="#">Recipes</a></li>
+                <li><a href="#">Recommendations</a></li>
             </ul>
             <form class="navbar-form navbar-left">
                 <div class="form-group">

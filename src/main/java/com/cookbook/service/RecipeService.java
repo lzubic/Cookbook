@@ -48,6 +48,16 @@ public class RecipeService {
         return randomRecipes;
     }
 
+    public Iterable<Recipe> findTopRated() {
+        List<Recipe> recipes = new ArrayList<>();
+        recipeRepository.findAll().forEach(recipes::add);
+        List<Recipe> topRecipes = new ArrayList<>();
+        for (Recipe recipe: recipes) {
+            Float averageRating = recipeRepository.getAverageRating(recipe.getId());
+        }
+        return null;
+    }
+
     public Recipe findById(Long id) {
         return recipeRepository.findOne(id);
     }
