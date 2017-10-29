@@ -22,6 +22,9 @@ public class Ingredient {
     @Relationship(type = "CONTAINS", direction = Relationship.INCOMING)
     private Set<Recipe> recipes = new HashSet<>();
 
+    @Relationship(type = "ALLERGIC", direction = Relationship.INCOMING)
+    private Set<User> users = new HashSet<>();
+
     public Ingredient() {}
 
     public Long getId() {
@@ -54,5 +57,13 @@ public class Ingredient {
 
     public void setRecipes(Set<Recipe> recipes) {
         this.recipes = new HashSet<>(recipes);
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = new HashSet<>(users);
     }
 }

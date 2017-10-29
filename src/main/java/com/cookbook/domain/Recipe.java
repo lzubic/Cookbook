@@ -1,9 +1,6 @@
 package com.cookbook.domain;
 
-import org.neo4j.ogm.annotation.GraphId;
-import org.neo4j.ogm.annotation.NodeEntity;
-import org.neo4j.ogm.annotation.Property;
-import org.neo4j.ogm.annotation.Relationship;
+import org.neo4j.ogm.annotation.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -45,6 +42,9 @@ public class Recipe {
 
     @Relationship(type = "RATED", direction = Relationship.INCOMING)
     private Set<Rating> ratings = new HashSet<>();
+
+    @Transient
+    private Double prediction;
 
     public Recipe() {}
 
@@ -142,5 +142,13 @@ public class Recipe {
 
     public void setRatings(Set<Rating> ratings) {
         this.ratings = new HashSet<>(ratings);
+    }
+
+    public Double getPrediction() {
+        return prediction;
+    }
+
+    public void setPrediction(Double prediction) {
+        this.prediction = prediction;
     }
 }

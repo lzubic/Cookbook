@@ -55,7 +55,7 @@ public class User {
     @Property
     private Boolean sweets;
 
-    @Relationship(type = "ALLERGIC_TO", direction = Relationship.OUTGOING)
+    @Relationship(type = "ALLERGIC", direction = Relationship.OUTGOING)
     private Set<Ingredient> allergens = new HashSet<>();
 
     @Relationship(type = "RATED", direction = Relationship.OUTGOING)
