@@ -6,7 +6,7 @@
     <jsp:include page="../../common/meta.jsp" />
     <meta name="_csrf" content="${_csrf.token}" />
     <meta name="_csrf_header" content="${_csrf.headerName}" />
-    <title>Cookbook | Admin</title>
+    <title>Cookbook</title>
     <jsp:include page="../../common/styles.jsp" />
     <link href="../../../resources/styles/admin/home.css" rel="stylesheet">
     <link href="../../../resources/styles/user/recipes/recipe-info.css" rel="stylesheet">

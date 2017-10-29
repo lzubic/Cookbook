@@ -33,6 +33,14 @@ public class RecipeController {
         return mav;
     }
 
+    @RequestMapping(value = "/recipes", method = RequestMethod.GET)
+    public ModelAndView recipes() {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("recipes", recipeService.findAll());
+        mav.setViewName("user/recipes/recipe-list");
+        return mav;
+    }
+
     @RequestMapping(value = "/recipes/{id}", method = RequestMethod.GET)
     public ModelAndView showRecipe(@PathVariable("id")Long id) {
         User user = userService.getRemoteUser();

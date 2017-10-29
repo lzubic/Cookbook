@@ -62,7 +62,7 @@ public class User {
     private Set<Rating> ratings = new HashSet<>();
 
     @Property
-    private Boolean enabled;
+    private Boolean enabled = false;
 
     public User() {}
     
