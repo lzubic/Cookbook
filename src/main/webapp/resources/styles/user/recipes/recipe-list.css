@@ -61,3 +61,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.list-group {
+    margin-bottom: 0px;
+}
+
+.thumbnail > img {
+    height: 65%;
+}
