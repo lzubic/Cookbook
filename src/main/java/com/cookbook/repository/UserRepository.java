@@ -19,7 +19,7 @@ public interface UserRepository extends GraphRepository<User> {
     Float getAverageRating(@Param("id")Long id);
 
     @Query("MATCH (user:User)-[:RATED]->(recipe:Recipe)<-[:RATED]-(other:User) WHERE ID(user) = {id} AND ID(other) <> {id} RETURN other")
-    Iterable<User> findNearestNeighbors(Long id);
+    Iterable<User> findNearestNeighbors(@Param("id")Long id);
 
     @Query("MATCH (user:User), (recipe:Recipe) WHERE ID(user) = {id} AND NOT((user)-[:RATED]->(recipe)) RETURN recipe")
     Iterable<Recipe> findUnratedRecipes(@Param("id")Long id);

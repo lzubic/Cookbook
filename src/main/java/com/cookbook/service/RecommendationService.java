@@ -42,10 +42,13 @@ public class RecommendationService {
         Float averageRatingRemoteUser = userRepository.getAverageRating(remoteUser.getId());
         double topExpression = 0, bottomExpression = 0;
         for (User otherUser : similarUsers) {
-            double similarity = this.similarity(remoteUser, otherUser);
-            double variationOtherUser = userRepository.getRating(otherUser.getId(), recipe.getId()) - userRepository.getAverageRating(otherUser.getId());
-            topExpression += similarity * variationOtherUser;
-            bottomExpression += similarity;
+            Integer rating = userRepository.getRating(otherUser.getId(), recipe.getId());
+            if (rating != null) {
+                double similarity = this.similarity(remoteUser, otherUser);
+                double variationOtherUser = rating - userRepository.getAverageRating(otherUser.getId());
+                topExpression += similarity * variationOtherUser;
+                bottomExpression += similarity;
+            }
         }
         return averageRatingRemoteUser + topExpression / bottomExpression;
     }
@@ -57,10 +60,13 @@ public class RecommendationService {
         userRepository.findNearestNeighbors(remoteUser.getId()).forEach(similarUsers::add);
         List<Recipe> recommendations = new ArrayList<>();
         for (Recipe recipe : unratedRecipes) {
-            recipe.setPrediction(this.prediction(remoteUser, recipe, similarUsers));
-            recommendations.add(recipe);
+            Double prediction = this.prediction(remoteUser, recipe, similarUsers);
+            if (!prediction.isNaN()) {
+                recipe.setPrediction(prediction);
+                recommendations.add(recipe);
+            }
         }
-        recommendations.sort(Comparator.comparing(Recipe::getPrediction));
+        recommendations.sort(Comparator.comparing(Recipe::getPrediction).reversed());
         return recommendations;
     }
 }
