@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -48,13 +49,15 @@ public class RecipeService {
     }
 
     public Iterable<Recipe> findTopRated() {
-        List<Recipe> recipes = new ArrayList<>();
-        recipeRepository.findAll().forEach(recipes::add);
-        List<Recipe> topRecipes = new ArrayList<>();
-        for (Recipe recipe: recipes) {
-            Float averageRating = recipeRepository.getAverageRating(recipe.getId());
+        List<Recipe> topRated = new ArrayList<>();
+        for (Recipe recipe : recipeRepository.findAll()) {
+            Double averageRating = recipeRepository.getAverageRating(recipe.getId());
+            if (averageRating == null) averageRating = 0.0;
+            recipe.setAverageRating(averageRating);
+            topRated.add(recipe);
         }
-        return null;
+        topRated.sort(Comparator.comparing(Recipe::getAverageRating).reversed());
+        return topRated.subList(0, Constants.ITEMS_TOP_RATED);
     }
 
     public Recipe findById(Long id) {
@@ -67,9 +70,11 @@ public class RecipeService {
     }
 
     public void update(Long id, Recipe recipe, MultipartFile file) {
-        FileManager.unload(recipeRepository.findOne(id).getPhoto());
         recipeRepository.save(recipe);
-        FileManager.upload(file);
+        if (!file.isEmpty()) {
+            FileManager.unload(recipeRepository.findOne(id).getPhoto());
+            FileManager.upload(file);
+        }
     }
 
     public void delete(Long id) {

@@ -28,7 +28,7 @@ public class HomeController {
         ModelAndView mav = new ModelAndView();
         mav.addObject("remoteUser", remoteUser);
         mav.addObject("randomRecipes", randomRecipes);
-        //mav.addObject("topRecipes", recipeService.findTopRated());
+        mav.addObject("topRecipes", recipeService.findTopRated());
         mav.setViewName("user/home");
         return mav;
     }

@@ -24,7 +24,7 @@ public class RecommendationController {
     public ModelAndView showRecommendations() {
         User user = userService.getRemoteUser();
         ModelAndView mav = new ModelAndView();
-        mav.addObject("recipes", recommendationService.getRecommendations(user));
+        mav.addObject("recipes", recommendationService.findRecommendations(user));
         mav.setViewName("user/recommendations/recommendations");
         return mav;
     }

@@ -45,11 +45,11 @@
             <c:forEach items="${topRecipes}" var="recipe">
                 <div class="col-sm-3">
                     <div class="thumbnail">
-                        <img src="../../resources/images/recipes/${recipe.photo == null ? 'recipe-blank.png' : recipe.photo}">
+                        <img src="../../resources/images/recipes/${recipe.photo == null ? 'recipe-blank.png' : recipe.photo}" class="recipe-photo">
                         <div class="caption">
                             <h3>${recipe.name}</h3>
                             <p>${recipe.description}</p>
-                            <p align="center"><a href="/recipes/${recipe.id}" class="btn btn-primary">View</a></p>
+                            <a href="/recipes/${recipe.id}">View</a>
                         </div>
                     </div>
                 </div>

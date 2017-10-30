@@ -44,6 +44,9 @@ public class Recipe {
     private Set<Rating> ratings = new HashSet<>();
 
     @Transient
+    private Double averageRating;
+
+    @Transient
     private Double prediction;
 
     public Recipe() {}
@@ -142,6 +145,14 @@ public class Recipe {
 
     public void setRatings(Set<Rating> ratings) {
         this.ratings = new HashSet<>(ratings);
+    }
+
+    public Double getAverageRating() {
+        return averageRating;
+    }
+
+    public void setAverageRating(Double averageRating) {
+        this.averageRating = averageRating;
     }
 
     public Double getPrediction() {

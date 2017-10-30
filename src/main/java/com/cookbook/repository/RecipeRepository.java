@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RecipeRepository extends GraphRepository<Recipe> {
     @Query("MATCH ()-[rated:RATED]->(recipe:Recipe) WHERE ID(recipe) = {id} RETURN AVG(rated.rate)")
-    Float getAverageRating(@Param("id")Long id);
+    Double getAverageRating(@Param("id") Long id);
 }

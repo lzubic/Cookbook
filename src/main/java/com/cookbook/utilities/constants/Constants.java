@@ -9,5 +9,5 @@ public final class Constants {
 
     public static final int ITEMS_PER_TABLE = 15;
 
-    public static final int ITEMS_TOP_RATED = 5;
+    public static final int ITEMS_TOP_RATED = 4;
 }
