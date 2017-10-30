@@ -6,7 +6,7 @@
     <jsp:include page="../../common/meta.jsp" />
     <meta name="_csrf" content="${_csrf.token}" />
     <meta name="_csrf_header" content="${_csrf.headerName}" />
-    <title>Cookbook</title>
+    <title>Cookbook | Recommendations</title>
     <jsp:include page="../../common/styles.jsp" />
     <link href="../../../resources/styles/user/recipes/recipe-list.css" rel="stylesheet">
 </head>
@@ -20,7 +20,7 @@
             <a href="#" id="grid" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th"></span>Grid</a>
         </div>
     </div>
-    <div class="row">
+    <div id="recipes" class="row">
         <c:forEach items="${recipes}" var="recipe">
             <div class="list-group">
                 <div class="item col-sm-4">
@@ -31,9 +31,6 @@
                             <p class="group inner list-group-item-text truncate">${recipe.prediction}</p>
                             <p class="group inner list-group-item-text truncate">${recipe.description}</p>
                             <div class="row">
-                                <div class="col-sm-12">
-                                    <p class="lead">${recipe.mealType}</p>
-                                </div>
                                 <div class="col-sm-12">
                                     <a class="btn btn-link pull-right" href="${pageContext.request.contextPath}/recipes/${recipe.id}">View</a>
                                 </div>
