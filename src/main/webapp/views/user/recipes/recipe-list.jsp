@@ -21,21 +21,21 @@
                 class="glyphicon glyphicon-th"></span>Grid</a>
         </div>
     </div>
-    <div class="row">
+    <div id="recipes" class="row">
     <c:forEach items="${recipes}" var="recipe">
     <div class="list-group">
-        <div class="item  col-xs-4 col-lg-4">
+        <div class="item  col-sm-4">
             <div class="thumbnail">
                 <img class="group list-group-image" src="../../resources/images/recipes/${recipe.photo == null ? 'recipe-blank.png' : recipe.photo}">
                 <div class="caption">
                     <h4 class="group inner list-group-item-heading">${recipe.name}</h4>
                     <p class="group inner list-group-item-text truncate">${recipe.description}</p>
                     <div class="row">
-                        <div class="col-xs-12 col-md-6">
+                        <div class="col-sm-12">
                             <p class="lead">${recipe.mealType}</p>
                         </div>
-                        <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="${pageContext.request.contextPath}/recipes/${recipe.id}">View</a>
+                        <div class="col-sm-12">
+                            <a class="btn btn-link pull-right" href="${pageContext.request.contextPath}/recipes/${recipe.id}">View</a>
                         </div>
                     </div>
                 </div>
