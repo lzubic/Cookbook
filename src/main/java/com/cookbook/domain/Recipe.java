@@ -34,7 +34,7 @@ public class Recipe {
     @Property
     private String dishType;
 
-    @Relationship(type = "BELONGS_TO", direction = Relationship.OUTGOING)
+    @Relationship(type = "BELONGS", direction = Relationship.OUTGOING)
     private Set<Category> categories = new HashSet<>();
 
     @Relationship(type = "CONTAINS", direction = Relationship.OUTGOING)
@@ -48,6 +48,9 @@ public class Recipe {
 
     @Transient
     private Double prediction;
+
+    @Transient
+    private Double evaluation;
 
     public Recipe() {}
 
@@ -161,5 +164,13 @@ public class Recipe {
 
     public void setPrediction(Double prediction) {
         this.prediction = prediction;
+    }
+
+    public Double getEvaluation() {
+        return evaluation;
+    }
+
+    public void setEvaluation(Double evaluation) {
+        this.evaluation = evaluation;
     }
 }

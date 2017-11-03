@@ -24,7 +24,8 @@ public class RecommendationController {
     public ModelAndView showRecommendations() {
         User user = userService.getRemoteUser();
         ModelAndView mav = new ModelAndView();
-        mav.addObject("recipes", recommendationService.findRecommendations(user));
+        mav.addObject("collaborativeFiltering", recommendationService.collaborativeFiltering(user));
+        mav.addObject("contentBased", recommendationService.contentBased(user));
         mav.setViewName("user/recommendations/recommendations");
         return mav;
     }

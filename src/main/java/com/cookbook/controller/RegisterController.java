@@ -2,6 +2,7 @@ package com.cookbook.controller;
 
 import com.cookbook.domain.User;
 import com.cookbook.service.IngredientService;
+import com.cookbook.service.PreferenceService;
 import com.cookbook.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,11 +15,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class RegisterController {
     private final UserService userService;
     private final IngredientService ingredientService;
+    private final PreferenceService preferenceService;
 
     @Autowired
-    public RegisterController(UserService userService, IngredientService ingredientService) {
+    public RegisterController(UserService userService, IngredientService ingredientService, PreferenceService preferenceService) {
         this.userService = userService;
         this.ingredientService = ingredientService;
+        this.preferenceService = preferenceService;
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -33,6 +36,7 @@ public class RegisterController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView processRegister(@ModelAttribute("user")User user) {
         userService.save(user);
+        preferenceService.save(user);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("redirect:/login");
         return mav;

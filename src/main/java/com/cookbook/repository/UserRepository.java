@@ -12,11 +12,11 @@ public interface UserRepository extends GraphRepository<User> {
     @Query("MATCH (user:User) WHERE user.username = {username} RETURN user")
     User findByUsername(@Param("username")String username);
 
-    @Query("MATCH (user:User)-[rated:RATED]->(recipe:Recipe) WHERE ID(user) = {uid} AND ID(recipe) = {rid} RETURN rated.rate")
-    Integer getRating(@Param("uid")Long id, @Param("rid")Long rid);
+    @Query("MATCH (user:User)-[rated:RATED]->(recipe:Recipe) WHERE ID(user) = {user} AND ID(recipe) = {recipe} RETURN rated.rate")
+    Integer getRating(@Param("user")Long user, @Param("recipe")Long recipe);
 
     @Query("MATCH (user:User)-[rated:RATED]->() WHERE ID(user) = {id} RETURN AVG(rated.rate)")
-    Float getAverageRating(@Param("id")Long id);
+    Double getAverageRating(@Param("id")Long id);
 
     @Query("MATCH (user:User)-[:RATED]->(recipe:Recipe)<-[:RATED]-(other:User) WHERE ID(user) = {id} AND ID(other) <> {id} RETURN other")
     Iterable<User> findNearestNeighbors(@Param("id")Long id);
@@ -24,6 +24,6 @@ public interface UserRepository extends GraphRepository<User> {
     @Query("MATCH (user:User), (recipe:Recipe) WHERE ID(user) = {id} AND NOT((user)-[:RATED]->(recipe)) RETURN recipe")
     Iterable<Recipe> findUnratedRecipes(@Param("id")Long id);
 
-    @Query("MATCH (user:User)-[:RATED]->(recipe:Recipe)<-[:RATED]-(other:User) WHERE ID(user) = {uid} AND ID(other) = {oid} RETURN recipe")
-    Iterable<Recipe> findCommonRecipes(@Param("uid")Long id, @Param("oid")Long oid);
+    @Query("MATCH (user:User)-[:RATED]->(recipe:Recipe)<-[:RATED]-(other:User) WHERE ID(user) = {user} AND ID(other) = {other} RETURN recipe")
+    Iterable<Recipe> findCommonRecipes(@Param("user")Long user, @Param("other")Long other);
 }

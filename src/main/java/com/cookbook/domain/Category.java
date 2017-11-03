@@ -16,8 +16,11 @@ public class Category {
     @Property
     private String name;
 
-    @Relationship(type = "BELONGS_TO", direction = Relationship.INCOMING)
+    @Relationship(type = "BELONGS", direction = Relationship.INCOMING)
     private Set<Recipe> recipes = new HashSet<>();
+
+    @Relationship(type = "FAVORS", direction = Relationship.INCOMING)
+    private Set<Favorite> favorites = new HashSet<>();
 
     public Category() {}
 
@@ -43,5 +46,13 @@ public class Category {
 
     public void setRecipes(Set<Recipe> recipes) {
         this.recipes = new HashSet<>(recipes);
+    }
+
+    public Set<Favorite> getFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(Set<Favorite> favorites) {
+        this.favorites = new HashSet<>(favorites);
     }
 }

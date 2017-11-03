@@ -61,6 +61,12 @@ public class User {
     @Relationship(type = "RATED", direction = Relationship.OUTGOING)
     private Set<Rating> ratings = new HashSet<>();
 
+    @Relationship(type = "PREFERS", direction = Relationship.OUTGOING)
+    private Set<Preference> preferences = new HashSet<>();
+
+    @Relationship(type = "FAVORS", direction = Relationship.OUTGOING)
+    private Set<Favorite> favorites = new HashSet<>();
+
     @Property
     private Boolean enabled = false;
 
@@ -208,5 +214,21 @@ public class User {
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public Set<Preference> getPreferences() {
+        return preferences;
+    }
+
+    public void setPreferences(Set<Preference> preferences) {
+        this.preferences = new HashSet<>(preferences);
+    }
+
+    public Set<Favorite> getFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(Set<Favorite> favorites) {
+        this.favorites = new HashSet<>(favorites);
     }
 }

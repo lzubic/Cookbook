@@ -19,6 +19,9 @@ public class Characteristic {
     @Relationship(type = "MARK", direction = Relationship.INCOMING)
     private Set<Ingredient> ingredients = new HashSet<>();
 
+    @Relationship(type = "PREFERS", direction = Relationship.INCOMING)
+    private Set<Preference> preferences = new HashSet<>();
+
     public Characteristic() {}
 
     public Long getId() {
@@ -43,5 +46,13 @@ public class Characteristic {
 
     public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = new HashSet<>(ingredients);
+    }
+
+    public Set<Preference> getPreferences() {
+        return preferences;
+    }
+
+    public void setPreferences(Set<Preference> preferences) {
+        this.preferences = new HashSet<>(preferences);
     }
 }
