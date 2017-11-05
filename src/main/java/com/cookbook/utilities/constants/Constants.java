@@ -11,7 +11,7 @@ public final class Constants {
 
     public static final int ITEMS_TOP_RATED = 4;
 
-    public static final int ITEMS_PER_RECOMMENDATION = 5;
+    public static final int ITEMS_PER_RECOMMENDATION = 3;
 
     public static final double SCORE_MEAT_ANIMAL_PRODUCT = 0.3;
 
