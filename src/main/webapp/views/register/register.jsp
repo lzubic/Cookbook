@@ -87,10 +87,10 @@
                             <h3>Do you like spicy food?</h3>
                             <form:checkbox path="spicy" data-group-cls="btn-group-lg" />
                         </div>
-                        <div class="form-group">
+                        <%--<div class="form-group">
                             <h3>Do you like sweets?</h3>
                             <form:checkbox path="sweets" data-group-cls="btn-group-lg" />
-                        </div>
+                        </div>--%>
                     </div>
                     <div class="tab">
                         <h1 style="margin-top: 0;">Select Allergens</h1><hr>

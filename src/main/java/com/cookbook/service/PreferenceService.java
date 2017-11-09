@@ -2,6 +2,7 @@ package com.cookbook.service;
 
 import com.cookbook.domain.*;
 import com.cookbook.repository.CharacteristicRepository;
+import com.cookbook.repository.IngredientRepository;
 import com.cookbook.repository.PreferenceRepository;
 import com.cookbook.utilities.constants.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -124,16 +125,12 @@ public class PreferenceService {
             preference.setCharacteristic(characteristicRepository.findByName("Salty"));
             preferenceRepository.save(preference);
         }
-
-        if (user.getSweets()) {
-        } else {
-        }
     }
 
     public void save(List<Integer> rates, User user, List<Recipe> recipes) {
         for (int i = 0; i < rates.size(); i++) {
             for (Ingredient ingredient : recipes.get(i).getIngredients()) {
-                for (Characteristic characteristic : ingredient.getCharacteristics()) {
+                for (Characteristic characteristic : characteristicRepository.findByIngredient(ingredient.getId())) {
                     Preference preference = preferenceRepository.find(user.getId(), characteristic.getId());
                     if (preference == null) {
                         preference = new Preference();
@@ -150,7 +147,7 @@ public class PreferenceService {
 
     public void save(Integer rate, User user, Recipe recipe) {
         for (Ingredient ingredient : recipe.getIngredients()) {
-            for (Characteristic characteristic : ingredient.getCharacteristics()) {
+            for (Characteristic characteristic : characteristicRepository.findByIngredient(ingredient.getId())) {
                 Preference preference = preferenceRepository.find(user.getId(), characteristic.getId());
                 if (preference == null) {
                     preference = new Preference();

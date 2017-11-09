@@ -36,8 +36,8 @@ public class RatingController {
         User user = userService.getRemoteUser();
         Recipe recipe = recipeService.findById(params.get("recipe").longValue());
         ratingService.save(rate, user, recipe);
-        preferenceService.save(rate, user, recipe);
         favoriteService.save(rate, user, recipe);
+        preferenceService.save(rate, user, recipe);
     }
 
     @RequestMapping(value = "/ratings", method = RequestMethod.POST)
@@ -50,6 +50,7 @@ public class RatingController {
             recipes.add(recipeService.findById(id.longValue()));
         }
         ratingService.save(rates, user, recipes);
+        favoriteService.save(rates, user, recipes);
         preferenceService.save(rates, user, recipes);
     }
 }

@@ -10,4 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface CharacteristicRepository extends GraphRepository<Characteristic> {
     @Query("MATCH (characteristic:Characteristic) WHERE characteristic.name = {name} RETURN characteristic")
     Characteristic findByName(@Param("name")String name);
+
+    @Query("MATCH (characteristic:Characteristic)<-[:MARK]-(ingredient:Ingredient) WHERE ID(ingredient) = {ingredient} RETURN characteristic")
+    Iterable<Characteristic> findByIngredient(@Param("ingredient")Long ingredient);
 }

@@ -54,6 +54,7 @@ public class RecommendationService {
                     bottomExpression += Math.abs(similarity);
                 }
             }
+            if (averageRatingRemoteUser == null) averageRatingRemoteUser = 0.0;
             return averageRatingRemoteUser + topExpression / bottomExpression;
         }
 

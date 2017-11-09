@@ -8,10 +8,10 @@ public class Preference {
     private Long id;
 
     @Property
-    private Double score;
+    private Double score = 0.0;
 
     @Property
-    private Integer total;
+    private Integer total = 0;
 
     @StartNode
     private User user;

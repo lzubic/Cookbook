@@ -24,11 +24,14 @@ public class FavoriteService {
     public void save(List<Integer> rates, User user, List<Recipe> recipes) {
         for (int i = 0; i < rates.size(); i++) {
             for (Category category : recipes.get(i).getCategories()) {
-                Favorite favorite = new Favorite();
+                Favorite favorite = favoriteRepository.find(user.getId(), category.getId());
+                if (favorite == null) {
+                    favorite = new Favorite();
+                    favorite.setUser(user);
+                    favorite.setCategory(category);
+                }
                 favorite.setScore(favorite.getScore() + (rates.get(i) - 3.0) / 2.0);
                 favorite.setTotal(favorite.getTotal() + 1);
-                favorite.setUser(user);
-                favorite.setCategory(category);
                 favoriteRepository.save(favorite);
             }
         }

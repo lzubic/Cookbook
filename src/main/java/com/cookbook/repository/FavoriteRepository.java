@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FavoriteRepository extends GraphRepository<Favorite> {
-    @Query("MATCH (user:User)-[favorites:FAVORITES]->(category:Category) WHERE ID(user) = {user} AND ID(category) = {category} RETURN favorites")
+    @Query("MATCH (user:User)-[favors:FAVORS]->(category:Category) WHERE ID(user) = {user} AND ID(category) = {category} RETURN favors")
     Favorite find(@Param("user")Long user, @Param("category")Long category);
 }
