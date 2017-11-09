@@ -6,7 +6,6 @@
     <jsp:include page="../common/meta.jsp" />
     <title>Cookbook | Register</title>
     <jsp:include page="../common/styles.jsp" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
     <link href="../../resources/styles/register/register.css" rel="stylesheet">
 </head>
 <body>
@@ -118,8 +117,6 @@
     </div>
 </div>
 <jsp:include page="../common/scripts.jsp" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
-<script src="../../resources/scripts/common/bootstrap-checkbox.min.js" defer></script>
-<script src="../../resources/scripts/register/register.js" defer></script>
+<script src="../../resources/scripts/register/register.js"></script>
 </body>
 </html>

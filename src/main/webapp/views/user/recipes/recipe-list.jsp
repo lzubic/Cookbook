@@ -4,8 +4,6 @@
 <html>
 <head>
     <jsp:include page="../../common/meta.jsp" />
-    <meta name="_csrf" content="${_csrf.token}" />
-    <meta name="_csrf_header" content="${_csrf.headerName}" />
     <title>Cookbook | Recipes</title>
     <jsp:include page="../../common/styles.jsp" />
     <link href="../../../resources/styles/user/recipes/recipe-list.css" rel="stylesheet">
@@ -14,7 +12,6 @@
 <div class="container">
     <header><jsp:include page="../menu/menu.jsp" /></header>
     <div class="well well-sm">
-        <strong>Recipes</strong>
         <div class="btn-group">
             <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"></span>List</a>
             <a href="#" id="grid" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th"></span>Grid</a>
@@ -43,7 +40,6 @@
     <footer><jsp:include page="../footer/footer.jsp" /></footer>
 </div>
 <jsp:include page="../../common/scripts.jsp" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
-<script src="../../../resources/scripts/user/recipes/recipe-list.js" defer></script>
+<script src="../../../resources/scripts/user/recipes/recipe-list.js"></script>
 </body>
 </html>

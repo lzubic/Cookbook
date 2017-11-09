@@ -1,2 +1,4 @@
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../../resources/scripts/common/jquery/jquery-3.2.1.min.js"></script>
+<script src="../../resources/scripts/common/bootstrap/bootstrap.min.js"></script>
+<script src="../../resources/scripts/common/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="../../resources/scripts/common/bootstrap-checkbox/bootstrap-checkbox.min.js"></script>

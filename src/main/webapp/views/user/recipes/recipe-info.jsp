@@ -6,7 +6,7 @@
     <jsp:include page="../../common/meta.jsp" />
     <meta name="_csrf" content="${_csrf.token}" />
     <meta name="_csrf_header" content="${_csrf.headerName}" />
-    <title>Cookbook</title>
+    <title>Cookbook | Recipe</title>
     <jsp:include page="../../common/styles.jsp" />
     <link href="../../../resources/styles/admin/home.css" rel="stylesheet">
     <link href="../../../resources/styles/user/recipes/recipe-info.css" rel="stylesheet">
@@ -85,7 +85,6 @@
     <footer><jsp:include page="../footer/footer.jsp" /></footer>
 </div>
 <jsp:include page="../../common/scripts.jsp" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
-<script src="../../../resources/scripts/user/recipes/recipe-info.js" defer></script>
+<script src="../../../resources/scripts/user/recipes/recipe-info.js"></script>
 </body>
 </html>

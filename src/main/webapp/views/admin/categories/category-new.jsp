@@ -6,7 +6,6 @@
     <jsp:include page="../../common/meta.jsp" />
     <title>Cookbook | Admin</title>
     <jsp:include page="../../common/styles.jsp" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
     <link href="../../../resources/styles/admin/home.css" rel="stylesheet">
 </head>
 <body>
@@ -28,6 +27,5 @@
     </div>
 </div>
 <jsp:include page="../../common/scripts.jsp" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 </body>
 </html>

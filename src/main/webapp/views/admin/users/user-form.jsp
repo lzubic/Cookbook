@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <div class="col-sm-2">
-                    <img src="http://websamplenow.com/30/userprofile/images/avatar.jpg" class="img-responsive img-thumbnail">
+                    <img src="../../../resources/images/users/avatar.jpg" class="img-responsive img-thumbnail">
                 </div>
             </div>
         </div>

@@ -6,7 +6,6 @@
     <jsp:include page="../../common/meta.jsp" />
     <title>Cookbook | Admin</title>
     <jsp:include page="../../common/styles.jsp" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
     <link href="../../../resources/styles/admin/home.css" rel="stylesheet">
     <link href="../../../resources/styles/admin/recipes/recipe-form.css" rel="stylesheet">
 </head>
@@ -110,7 +109,6 @@
     </div>
 </div>
 <jsp:include page="../../common/scripts.jsp" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 <script src="../../../resources/scripts/admin/recipes/recipe-form.js"></script>
 </body>
 </html>

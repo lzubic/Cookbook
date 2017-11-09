@@ -59,6 +59,6 @@
     <footer><jsp:include page="./footer/footer.jsp" /></footer>
 </div>
 <jsp:include page="../common/scripts.jsp" />
-<script src="../../resources/scripts/user/ratings/ratings.js" defer></script>
+<script src="../../resources/scripts/user/ratings/ratings.js"></script>
 </body>
 </html>
