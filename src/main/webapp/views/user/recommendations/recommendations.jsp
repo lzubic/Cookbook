@@ -22,7 +22,6 @@
                         <img class="group list-group-image" src="../../resources/images/recipes/${recipe.photo == null ? 'recipe-blank.png' : recipe.photo}">
                         <div class="caption">
                             <h4 class="group inner list-group-item-heading">${recipe.name}</h4>
-                            <p class="group inner list-group-item-text truncate">${recipe.prediction}</p>
                             <p class="group inner list-group-item-text truncate">${recipe.description}</p>
                             <div class="row">
                                 <div class="col-sm-12">
@@ -44,7 +43,6 @@
                         <img class="group list-group-image" src="../../resources/images/recipes/${recipe.photo == null ? 'recipe-blank.png' : recipe.photo}">
                         <div class="caption">
                             <h4 class="group inner list-group-item-heading">${recipe.name}</h4>
-                            <p class="group inner list-group-item-text truncate">${recipe.evaluation}</p>
                             <p class="group inner list-group-item-text truncate">${recipe.description}</p>
                             <div class="row">
                                 <div class="col-sm-12">

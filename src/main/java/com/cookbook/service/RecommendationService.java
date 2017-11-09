@@ -29,12 +29,10 @@ public class RecommendationService {
 
     public class CollaborativeFiltering {
         private Double similarity(User remoteUser, User otherUser) {
-            List<Recipe> commonRecipes = new ArrayList<>();
-            userRepository.findCommonRecipes(remoteUser.getId(), otherUser.getId()).forEach(commonRecipes::add);
             Double averageRatingRemoteUser = userRepository.getAverageRating(remoteUser.getId());
             Double averageRatingOtherUser = userRepository.getAverageRating(otherUser.getId());
             double topExpression = 0, bottomLeftExpression = 0, bottomRightExpression = 0;
-            for (Recipe recipe : commonRecipes) {
+            for (Recipe recipe : userRepository.findCommonRecipes(remoteUser.getId(), otherUser.getId())) {
                 double variationRemoteUser = userRepository.getRating(remoteUser.getId(), recipe.getId()) - averageRatingRemoteUser;
                 double variationOtherUser = userRepository.getRating(otherUser.getId(), recipe.getId()) - averageRatingOtherUser;
                 topExpression += variationRemoteUser * variationOtherUser;
@@ -44,7 +42,7 @@ public class RecommendationService {
             return topExpression / (Math.sqrt(bottomLeftExpression) * Math.sqrt(bottomRightExpression));
         }
 
-        private Double prediction(User remoteUser, Recipe recipe, List<User> similarUsers) {
+        private Double prediction(User remoteUser, Recipe recipe, Iterable<User> similarUsers) {
             Double averageRatingRemoteUser = userRepository.getAverageRating(remoteUser.getId());
             double topExpression = 0, bottomExpression = 0;
             for (User otherUser : similarUsers) {
@@ -53,21 +51,18 @@ public class RecommendationService {
                     double similarity = this.similarity(remoteUser, otherUser);
                     double variationOtherUser = rating - userRepository.getAverageRating(otherUser.getId());
                     topExpression += similarity * variationOtherUser;
-                    bottomExpression += similarity;
+                    bottomExpression += Math.abs(similarity);
                 }
             }
             return averageRatingRemoteUser + topExpression / bottomExpression;
         }
 
         Iterable<Recipe> getRecommendations(User remoteUser) {
-            List<Recipe> unratedRecipes = new ArrayList<>();
-            userRepository.findUnratedRecipes(remoteUser.getId()).forEach(unratedRecipes::add);
-            List<User> similarUsers = new ArrayList<>();
-            userRepository.findNearestNeighbors(remoteUser.getId()).forEach(similarUsers::add);
+            Iterable<User> similarUsers = userRepository.findNearestNeighbors(remoteUser.getId());
             List<Recipe> recommendations = new ArrayList<>();
-            for (Recipe recipe : unratedRecipes) {
+            for (Recipe recipe : userRepository.findUnratedRecipes(remoteUser.getId())) {
                 Double prediction = this.prediction(remoteUser, recipe, similarUsers);
-                if (prediction.isNaN()) prediction = 0.0;
+                if (prediction.isNaN()) prediction = 1.0;
                 recipe.setPrediction(prediction);
                 recommendations.add(recipe);
             }

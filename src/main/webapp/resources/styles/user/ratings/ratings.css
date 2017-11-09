@@ -1,3 +1,7 @@
+.rating-photo {
+    height: 130px !important;
+}
+
 .rating {
     width: 100%;
     direction: rtl;

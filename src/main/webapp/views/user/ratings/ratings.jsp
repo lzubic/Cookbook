@@ -14,11 +14,8 @@
                     <c:forEach items="${randomRecipes}" var="recipe" varStatus="status">
                         <div class="col-sm-4">
                             <div class="thumbnail">
-                                <img src="../../resources/images/recipes/${recipe.photo == null ? 'recipe-blank.png' : recipe.photo}">
-                                <div class="caption">
-                                    <h4>${recipe.name}</h4>
-                                    <p>${recipe.description}</p>
-                                </div>
+                                <img src="../../resources/images/recipes/${recipe.photo == null ? 'recipe-blank.png' : recipe.photo}" class="rating-photo">
+                                <div class="caption"><h4>${recipe.name}</h4></div>
                                 <div class="rating text-center">
                                     <label><input type="radio" name="rates-${status.index}" value="5" /></label>
                                     <label><input type="radio" name="rates-${status.index}" value="4" /></label>
