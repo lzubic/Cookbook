@@ -39,7 +39,7 @@ public class RecommendationService {
                 bottomLeftExpression += variationRemoteUser * variationRemoteUser;
                 bottomRightExpression += variationOtherUser * variationOtherUser;
             }
-            return topExpression / (Math.sqrt(bottomLeftExpression) * Math.sqrt(bottomRightExpression));
+            return topExpression / Math.sqrt(bottomLeftExpression * bottomRightExpression);
         }
 
         private Double prediction(User remoteUser, Recipe recipe, Iterable<User> similarUsers) {
